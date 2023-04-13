@@ -1,0 +1,59 @@
+{% extends 'main/base.html' %}
+
+{% block nav_about %}{% endblock %}
+
+{% block content %}
+  <!-- ======= Hero Section ======= -->
+  <section id="hero" class="d-flex align-items-center" style="background: url('/static/{{ac.ArticleCategoryimg}}') center center; max-height: 200px;">
+    <div class="container text-center d-flex flex-column justify-content-bottom" data-aos="fade-in" data-aos-delay="200">
+      <h3 style="font-size:1.5rem; color:white">{{ac.NavCatName.NavCatName}}</h3>
+      <h3 style="font-size:2.5rem; color:white">{{ac.NavSubCatName}}</h3>
+
+    </div>
+  </section><!-- End Hero -->
+
+  <main id="main">
+
+    <!-- ======= Team Section ======= -->
+    
+    <section id="team" class="team mt-4">
+      <div class="container">
+        <div class="row d-flex justify-content-center">
+          
+          {% for article in Articles %}
+
+            
+
+            {% if article.NavSubCatName.id == ac.id %}
+                <div class="col-lg-4 d-flex justify-content-center mt-4">
+                  <div class="member" data-aos="zoom-in" data-aos-delay="100">
+                    <a href="/article/{{article.id}}">
+                    <div class="pic"><img src="{{article.Articleimg}}" class="img-fluid" alt=""></div>
+                    <div class="member-info">
+                      
+                      <h5><span>{{article.ArticleName}}</span></h5>
+                      
+                      
+                    </div>
+                    </a>
+                    <div>
+                      <p style="font-size:0.75rem">Article written: {{article.LastUpdated|date:"d/m/Y" }}</p>
+                    </div>
+                  </div>
+                </div>
+              {% endif %}
+                
+            {% endfor %}
+        </div>
+      </div>
+    </section>
+    <!-- End Team Section -->
+
+    
+   
+
+    
+
+  </main><!-- End #main -->
+
+{% endblock %}

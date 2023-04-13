@@ -1,0 +1,44 @@
+{% extends 'main/base.html' %}
+
+{% block nav_about %}{% endblock %}
+
+{% block content %}
+  <!-- ======= Hero Section ======= -->
+  <section id="hero" class="d-flex align-items-center" style="background: url('{{a.Articleimg}}') center center; max-height: 200px;">
+    
+  </section><!-- End Hero -->
+
+  <main id="main">
+    <div class="col-lg-12 mt-2 d-flex justify-content-between">
+    <div class="col-lg-4">
+      <a href="/">Home</a>
+      <i class="bi bi-chevron-right"></i>
+      <a href="/articlecategory/{{a.NavSubCatName.id}}">{{a.NavSubCatName}}</a>
+    </div>
+    <div class="col-lg-4 text-end">
+      Published: {{a.LastUpdated|date:"d M, Y" }}
+      
+    </div>
+    </div>
+    <!-- ======= Article Section ======= -->
+    
+    <section class="article">
+      <div class="container">
+        <div class="col-lg-12 articletitle text-center">
+      
+          <h3 ><a href="/article/{{a.id}}">{{a.ArticleName}}</a></h3>
+
+        </div>
+        {{a.ArticleBody|safe}}
+      </div>
+    </section>
+    <!-- End Article Section -->
+
+    
+   
+
+    
+
+  </main><!-- End #main -->
+
+{% endblock %}

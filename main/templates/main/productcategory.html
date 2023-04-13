@@ -1,0 +1,185 @@
+{% extends 'main/base.html' %}
+
+{% block nav_about %}{% endblock %}
+
+{% block content %}
+  <!-- ======= Hero Section ======= -->
+  <section id="hero" class="d-flex align-items-center" style="background: url('/static/{{pc.ProductCategoryimg}}') center center; max-height: 600px;">
+    <div class="container text-center position-relative" data-aos="fade-in" data-aos-delay="200">
+      <h1>{{pc.ProductCategoryName}}</h1>
+      <h2>Helping You Find The best {{pc.ProductCategoryName}} available in UK in {{Year}}!</h2>
+      <a href="/#categories" class="btn-get-started scrollto">Back to Product Categories</a>
+    </div>
+  </section><!-- End Hero -->
+
+  <main id="main">
+
+    <!-- ======= Clients Section ======= -->
+    <!--<section id="clients" class="clients">
+      <div class="container">
+
+        <div class="row">
+
+          <div class="col-lg-2 col-md-4 col-6 d-flex align-items-center" data-aos="zoom-in" data-aos-delay="100">
+            <img src="assets/img/clients/client-1.png" class="img-fluid" alt="">
+          </div>
+
+          <div class="col-lg-2 col-md-4 col-6 d-flex align-items-center" data-aos="zoom-in" data-aos-delay="200">
+            <img src="assets/img/clients/client-2.png" class="img-fluid" alt="">
+          </div>
+
+          <div class="col-lg-2 col-md-4 col-6 d-flex align-items-center" data-aos="zoom-in" data-aos-delay="300">
+            <img src="assets/img/clients/client-3.png" class="img-fluid" alt="">
+          </div>
+
+          <div class="col-lg-2 col-md-4 col-6 d-flex align-items-center" data-aos="zoom-in" data-aos-delay="400">
+            <img src="assets/img/clients/client-4.png" class="img-fluid" alt="">
+          </div>
+
+          <div class="col-lg-2 col-md-4 col-6 d-flex align-items-center" data-aos="zoom-in" data-aos-delay="500">
+            <img src="assets/img/clients/client-5.png" class="img-fluid" alt="">
+          </div>
+
+          <div class="col-lg-2 col-md-4 col-6 d-flex align-items-center" data-aos="zoom-in" data-aos-delay="600">
+            <img src="assets/img/clients/client-6.png" class="img-fluid" alt="">
+          </div>
+
+        </div>
+
+      </div>
+    </section>--><!-- End Clients Section -->
+
+    
+    <!-- ======= About Section ======= -->
+    <section id="about" class="about">
+      <div class="container">
+
+        <div class="row content">
+          <div class="col-lg-6" data-aos="fade-right" data-aos-delay="100">
+            <h2>{{pc.ProductCategoryDesc1}}</h2>
+            <h3>{{pc.ProductCategoryDesc2}}</h3>
+          </div>
+          <div class="col-lg-6 pt-4 pt-lg-0" data-aos="fade-left" data-aos-delay="200">
+            <p>
+              {{pc.ProductCategoryDesc3}}
+            </p>
+            <ul>
+              {% for feature in features %}
+              <li><i class="ri-check-double-line"></i>{{feature.FeatureName}}</li>
+                <ul>
+                  <li>{{feature.FeatureDesc}}</li>
+                </ul>
+              {% endfor %}
+            </ul>
+            <p class="fst-italic">
+              {{pc.ProductCategoryAddInfo|safe}}
+            </p>
+            
+          </div>
+
+        </div>
+      
+      </div>
+    </section><!-- End About Section -->
+    <div id="ProductStart">
+      
+    </div>
+
+    <!-- ======= Product List Section ======= -->
+    <div class="container mt-4 mb-4">
+
+        {% if ProductListSubCategories.count > 0 %}
+        <div class="row portfolio" data-aos="fade-up" data-aos-delay="100">
+          <div class="col-lg-12 d-flex justify-content-center">
+            <ul id="portfolio-flters">
+
+              <li data-filter="*" class="filter-active">All</li>
+
+              {% for ProductListSubCategory in ProductListSubCategories %}
+              <li data-filter=".filter-cat{{ProductListSubCategory.id}}">{{ProductListSubCategory}}</li>
+              {% endfor %}
+              {% if ProductsNotSetCount > 0 %}
+              <li data-filter=".filter-cat1">Other</li>
+              {% endif %}
+
+            </ul>
+          </div>
+        </div>
+        {% endif %}
+
+
+      <div class="d-flex justify-content-center row portfolio-container">
+        <div class="col-md-12">
+          <!--===PRODUCT START-->
+          {% for Product in ProductLists %}
+        
+          <div class="row p-2 bg-white border rounded mt-1 portfolio-item filter-cat{{Product.ProductListSubCategory.id}}"  > <!--data-aos="fade-up" data-aos-delay="0"-->
+          
+          
+            <div class="col-md-3 mt-1 d-flex justify-content-center">
+              <div class="productname d-flex flex-column">
+                <div class="max-auto d-flex justify-content-center">
+                  <a href="{{Product.AmazonLink}}">
+                    <img class="img-fluid img-responsive rounded p-3" src="{{Product.Productimg}}" >
+                  </a>
+                </div>
+                <div class="d-flex flex-column">
+                  <div class="text-center">
+                    <h5>{{Product.ProductBrand}}</h5>
+                  </div>
+                  <div class="text-center">
+                   <h6><strong>{{Product.ProductName}}</strong></h6>
+                  </div>
+                </div>
+                
+                <div class="d-flex justify-content-center bg-white">
+                  <h5><strong><a href="{{Product.AmazonLink}}">£{{Product.ProductCost|floatformat:2}} on Amazon</a></strong></h5>
+                </div>
+              </div>
+            </div>
+            <div class="col-md-9">
+              <div class="d-flex flex-column">
+              <div class="result-summary">
+                <div class="results grid-flow" data-spacing="large">
+                  <p class="result-score"><span>{{Product.AmazonStar}}</span> of 5.0</p>
+                  <div class="grid-flow">
+                    <p class="result-rank">
+                      {{Product.AmazonStarRating}}
+                    </p>
+                  </div>
+                </div>
+                <div class="summary grid-flow d-flex flex-column" data-spacing="large"> 
+                  <div class="grid-flow">
+                    {% for FeatureScore in Product.ProductScores %}
+                    <div class="summary-item" data-item-type="accent-3">
+                      <div class="flex-group">
+                        <h5 class="summary-item-title">{{FeatureScore.0}}</h5>
+                      </div>
+                      <p class="summary-score"><span>{{FeatureScore.1}}</span> / 5.0</p>
+                    </div>
+                    {% endfor %}
+                  </div>
+                </div>
+              </div>
+              <div class="productdesc text-center mt-2">
+                <h6><small>{{Product.ProductDesc}}</small></h6>
+              </div>
+              </div>
+            </div>
+          </div>
+          
+        
+          {% endfor %}
+          <!--===PRODUCT END-->
+        
+        </div>
+      </div>
+    </div>
+    <!-- End Product List Section -->
+   
+
+    
+
+  </main><!-- End #main -->
+
+{% endblock %}

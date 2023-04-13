@@ -1,0 +1,80 @@
+<header id="header" class="fixed-top d-flex align-items-center">
+    <div class="container">
+      <div class="header-container d-flex align-items-center justify-content-between">
+        <div class="logo">
+
+          <h1 class="text-light">
+            <a href="index.html">
+              <!--<img src="assets/img/favicon.png" alt="" class="img-fluid">-->
+              <span> Garden Guru
+              </span>
+            </a>
+          </h1>
+
+          <!-- Uncomment below if you prefer to use an image logo -->
+          <!--<a href="index.html"><img src="assets/img/logo.png" alt="" class="img-fluid"></a>-->
+        </div>
+
+        <nav id="navbar" class="navbar">
+          <ul>
+            <li><a class="nav-link scrollto active" href="index.html">Home</a></li>
+            {% block nav_about %}<li><a class="nav-link scrollto" href="index.html#about">About</a></li>{% endblock %}
+            <li class="dropdown"><a href="#tips"><span>Gardening Tips</span> <i class="bi bi-chevron-down"></i></a>
+              <ul>
+                <li><a href="#">How we test</a></li>
+                <li class="dropdown"><a href="#"><span>Testing process</span> <i class="bi bi-chevron-right"></i></a>
+                  <ul>
+                    <li><a href="#">Propagators</a></li>
+                    <li><a href="#">Lawn Mowers</a></li>
+                  </ul>
+                </li>
+                <li><a href="#">Retailers</a></li>
+                
+              </ul>
+            </li>
+            <li class="dropdown nav-link scrollto"><a href="#categories"><span>Product Categories</span> <i class="bi bi-chevron-down"></i></a>
+              <ul>
+                <li class="dropdown nav-link scrollto"><a href="#"><span>Growing</span> <i class="bi bi-chevron-right"></i></a>
+                  <ul>
+                    <li><a href="productpage_growing_growingpots.html">Growing Pots</a></li>
+                    <li><a href="productpage_growing_seedlingtrays.html">Seedling Trays</a></li>
+                    <li><a href="productpage_growing_propagators.html">Propagators</a></li>
+                    <li><a href="productpage_growing_greenhouses.html">Greenhouses</a></li>
+                  </ul>
+                </li>
+                <li class="dropdown nav-link scrollto"><a href="#"><span>Plant Protection & Pest Control</span> <i class="bi bi-chevron-right"></i></a>
+                  <ul>
+                    <li><a href="productpage_plantprotection&pestcontrol_weedbarrierfabric.html">Weed Barrier Fabric</a></li>
+                    <li><a href="productpage_plantprotection&pestcontrol_plantcovers.html">Plant Covers</a></li>
+                    <li><a href="productpage_plantprotection&pestcontrol_growtunnels.html">Grow Tunnels</a></li>
+                  </ul>
+                </li>
+                <li class="dropdown nav-link scrollto"><a href="#"><span>Hand Tools</span> <i class="bi bi-chevron-right"></i></a>
+                  <ul>
+                    <li><a href="productpage_handtools_shovels&spades.html">Shovels & Spades</a></li>
+                    <li><a href="productpage_handtools_rakes.html">Rakes</a></li>
+                    <li><a href="productpage_handtools_bulbplanters.html">Bulb Planters</a></li>
+                    <li><a href="productpage_handtools_manualaerators.html">Manual Aerators</a></li>
+                  </ul>
+                </li>
+                <!--<li class="dropdown nav-link scrollto"><a href="#"><span>Outdoor Power Tools</span> <i class="bi bi-chevron-right"></i></a>
+                  <ul>
+                    <li><a href="productpage_outdoorpowertools_lawnmowers.html">Lawn Mowers</a></li>
+                    <li><a href="productpage_outdoorpowertools_robotlawnmowers.html">Robot Lawn Mowers</a></li>
+                    <li><a href="productpage_outdoorpowertools_grasstrimmers.html">Grass Trimmers</a></li>
+                    <li><a href="productpage_outdoorpowertools_hedgetrimmers.html">Hedge Trimmers</a></li>
+                    <li><a href="productpage_outdoorpowertools_pressurewashers.html">Pressure Washers</a></li>
+                  </ul>
+                </li>
+              </ul>
+            </li>
+            <li><a class="nav-link scrollto" href="#categories"></a>-->
+            <!--<li><a class="nav-link scrollto" href="#contact">Contact</a></li>-->
+            <!--<li><a class="getstarted scrollto" href="#about">Log in / Register</a></li>-->
+          </ul>
+          <i class="bi bi-list mobile-nav-toggle"></i>
+        </nav><!-- .navbar -->
+
+      </div><!-- End Header Container -->
+    </div>
+  </header><!-- End Header -->

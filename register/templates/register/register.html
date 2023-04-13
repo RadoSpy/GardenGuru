@@ -1,0 +1,29 @@
+{% extends 'main/base.html' %}
+
+{% block nav_about %}{% endblock %}
+
+{% load crispy_forms_tags %}
+
+{% block content %}
+
+<!-- ======= Hero Section ======= -->
+  <!--<section id="hero" class="d-flex align-items-center" style="height: 0vh;">
+    <div class="container text-center position-relative" data-aos="fade-in" data-aos-delay="200" >
+      
+     
+      
+    </div>
+  </section> End Hero -->
+
+  <div class="container" style="height:20vh">
+  	
+  </div>
+<div class="container d-flex justify-content-center ">
+	<form method="post" class="form-group" action="" ">
+      	{% csrf_token %}
+		{{form|crispy}}
+		<button type="submit" class="btn btn-success">Register</button>
+	</form>
+</div>
+	
+{% endblock %}

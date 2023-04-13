@@ -1,0 +1,222 @@
+{% extends 'main/base.html' %}
+
+
+{% block content %}
+  <!-- ======= Hero Section ======= -->
+  <section id="hero" class="d-flex align-items-center">
+    <div class="container text-center position-relative" data-aos="fade-in" data-aos-delay="200">
+      <h1>Garden Guru</h1>
+      <h2>Helping You Find the Best Tools for Your Green Space</h2>
+      <a href="index.html#categories" class="btn-get-started scrollto">Product Categories</a>
+    </div>
+  </section><!-- End Hero -->
+
+  <main id="main">
+
+    <!-- ======= Clients Section ======= -->
+    <!--<section id="clients" class="clients">
+      <div class="container">
+
+        <div class="row">
+
+          <div class="col-lg-2 col-md-4 col-6 d-flex align-items-center" data-aos="zoom-in" data-aos-delay="100">
+            <img src="assets/img/clients/client-1.png" class="img-fluid" alt="">
+          </div>
+
+          <div class="col-lg-2 col-md-4 col-6 d-flex align-items-center" data-aos="zoom-in" data-aos-delay="200">
+            <img src="assets/img/clients/client-2.png" class="img-fluid" alt="">
+          </div>
+
+          <div class="col-lg-2 col-md-4 col-6 d-flex align-items-center" data-aos="zoom-in" data-aos-delay="300">
+            <img src="assets/img/clients/client-3.png" class="img-fluid" alt="">
+          </div>
+
+          <div class="col-lg-2 col-md-4 col-6 d-flex align-items-center" data-aos="zoom-in" data-aos-delay="400">
+            <img src="assets/img/clients/client-4.png" class="img-fluid" alt="">
+          </div>
+
+          <div class="col-lg-2 col-md-4 col-6 d-flex align-items-center" data-aos="zoom-in" data-aos-delay="500">
+            <img src="assets/img/clients/client-5.png" class="img-fluid" alt="">
+          </div>
+
+          <div class="col-lg-2 col-md-4 col-6 d-flex align-items-center" data-aos="zoom-in" data-aos-delay="600">
+            <img src="assets/img/clients/client-6.png" class="img-fluid" alt="">
+          </div>
+
+        </div>
+
+      </div>
+    </section>--><!-- End Clients Section -->
+
+    <!-- ======= About Section ======= -->
+    <section id="about" class="about">
+      <div class="container">
+
+        <div class="row content">
+          <div class="col-lg-6" data-aos="fade-right" data-aos-delay="100">
+            <h2>Your Trusted Source for All Things Gardening</h2>
+            <h3>With a deep passion for all things green and extensive expertise in the horticultural industry, we possess unrivaled knowledge and insights into plants and gardening.</h3>
+          </div>
+          <div class="col-lg-6 pt-4 pt-lg-0" data-aos="fade-left" data-aos-delay="200">
+            <p>
+              We are committed to providing our readers with the latest tips and guides on gardening, as well as in-depth product reviews and recommendations. Starting gardening can be difficult and we want to change it! We understand the importance of using market-leading products to achieve the best results in your garden, and that's why we test and review different gardening products to help you make informed decisions. We appreciate how difficult it can be to choose the right product and we are here to help!
+              Please note that we may earn a commission from purchases made through our affiliate links, but rest assured that our recommendations are always unbiased and based on our own experiences with the products.
+            </p>
+            
+            <p class="fst-italic">
+             We may earn a commission from purchases made through our affiliate links, but rest assured that our recommendations are always unbiased and based on our own experiences with the products.
+            </p>
+          </div>
+        </div>
+
+      </div>
+    </section><!-- End About Section -->
+
+    <!-- ======= Counts Section ======= -->
+    <section id="counts" class="counts">
+      <div class="container">
+
+        <div class="row counters">
+
+          <div class="col-lg-4 col-6 text-center">
+            <span data-purecounter-start="0" data-purecounter-end="{{ProductCategories.count}}" data-purecounter-duration="1" class="purecounter"></span>
+            <p>Product Categories</p>
+          </div>
+
+          <div class="col-lg-4 col-6 text-center">
+            <span data-purecounter-start="0" data-purecounter-end="{{ProductLists.count}}" data-purecounter-duration="1" class="purecounter"></span>
+            <p>Products</p>
+          </div>
+
+          <!--<div class="col-lg-3 col-6 text-center">
+            <span data-purecounter-start="0" data-purecounter-end="600" data-purecounter-duration="1" class="purecounter"></span>
+            <p>Tests Performed</p>
+          </div>-->
+
+          <div class="col-lg-4 col-6 text-center">
+            <span data-purecounter-start="0" data-purecounter-end="{{Articles|length}}" data-purecounter-duration="1" class="purecounter"></span>
+            <p>Helpful Articles</p>
+          </div>
+
+        </div>
+
+      </div>
+    </section><!-- End Counts Section -->
+
+    <!-- ======= Why Us Section ======= -->
+    <section id="why-us" class="why-us">
+      <div class="container">
+
+        <div class="row">
+          <div class="col-lg-4 d-flex align-items-stretch" data-aos="fade-right">
+            <div class="content">
+              <h3>Get started</h3>
+              <p>
+                Simply select the product categories that interest you. Browse our most popular products to the right, or go to Product Category section to find products that interest you.
+              </p>
+              <div class="text-center">
+                <a href="/#categories" class="more-btn">Product Categories <i class="bx bx-chevron-right"></i></a>
+              </div>
+            </div>
+          </div>
+          <div class="col-lg-8 d-flex align-items-stretch">
+            <div class="icon-boxes d-flex flex-column justify-content-center">
+              <div class="row">
+                {% for productcat in ProductCategories %}
+                {% if productcat.id in TopProductCats %}
+                <div class="col-xl-4 d-flex align-items-stretch" data-aos="zoom-in" data-aos-delay="100">
+                  <div class="icon-box mt-4 mt-xl-0">
+                      <a href="/productcategory/{{productcat.id}}">
+                        <i class="bx bx-leaf"></i>
+                        <h4>{{productcat.ProductCategoryName}}</h4>
+                        <p>{{productcat.ProductCategoryDesc1}}</p>
+                    </a>
+                  </div>
+                </div>
+                {% endif %}
+                {% endfor %}
+                
+                
+              </div>
+            </div><!-- End .content-->
+          </div>
+        </div>
+
+      </div>
+    </section><!-- End Why Us Section -->
+
+    <!-- ======= Cta Section ======= -->
+    <section id="cta" class="cta">
+      <div class="container">
+
+        <div class="text-center col-lg-12 p-4" data-aos="zoom-in">
+          <h3>Gardening Advice and Tips</h3>
+          <p>We've got everything you need to create your dream garden. Whether you're a seasoned gardener or just starting out, our goal is to help you find the best products and techniques to achieve your gardening goals. So take a look around and explore our tips and advice sections to unlock the secrets to successful gardening:</p>
+
+          <div class="container d-flex justify-content-center activedropdown p-4">
+            <div class="col-lg-6">
+            <ul>
+                {% for NavSubCat in NavSubCats %}
+                {% if NavSubCat.NavCatName.id == 1 %}
+                <li><a href="/articlecategory/{{NavSubCat.id}}"><h6 style="color:white">{{NavSubCat}}</h6></a></li>
+                {% endif %}
+                {% endfor %}
+              </ul>
+            </div>
+         <div class="col-lg-6">
+            <ul>
+                {% for NavSubCat in NavSubCats %}
+                {% if NavSubCat.NavCatName.id == 2 %}
+                <li><a href="/articlecategory/{{NavSubCat.id}}"><h6 style="color:white">{{NavSubCat}}</h6></a></li>
+                {% endif %}
+                {% endfor %}
+              </ul>
+            </div>
+            </div>
+        </div>
+
+      </div>
+    </section><!-- End Cta Section -->
+
+   
+
+    <!-- ======= Portfolio Section ======= -->
+    <section id="categories" class="portfolio">
+      <div class="container">
+
+        <div class="section-title" data-aos="fade-left">
+          <h2>Product Categories</h2>
+          <!--<p>Magnam dolores commodi suscipit. Necessitatibus eius consequatur ex aliquid fuga eum quidem. Sit sint consectetur velit. Quisquam quos quisquam cupiditate. Et nemo qui impedit suscipit alias ea. Quia fugiat sit in iste officiis commodi quidem hic quas.</p>-->
+        </div>
+
+        <div class="row" data-aos="fade-up" data-aos-delay="100">
+          <div class="col-lg-12 d-flex justify-content-center">
+            <ul id="portfolio-flters">
+              <li data-filter="*" class="filter-active">All</li>
+              {% for ProductCategoryGroup in ProductCategoryGroups %}
+              <li data-filter=".filter-cat{{ProductCategoryGroup.id}}">{{ProductCategoryGroup.ProductCategoryGroupName}}</li>
+              {% endfor %}
+            </ul>
+          </div>
+        </div>
+
+        <div class="row portfolio-container" data-aos="fade-up" data-aos-delay="200">
+          {% for ProductCategory in ProductCategories %}
+          <div class="col-lg-4 col-md-6 portfolio-item filter-cat{{ProductCategory.ProductCategoryGroupName.id}}">
+            <a href="productcategory/{{ProductCategory.id}}">
+            <div class="portfolio-wrap">
+              <img src="/static/{{ProductCategory.ProductCategoryimg}}" class="img-fluid" alt="">
+              <div class="portfolio-info">
+                <h4>{{ProductCategory.ProductCategoryName}}</h4>
+                <p>{{ProductCategory.ProductCategoryGroupName}}</p>
+              </div>
+            </div>
+            </a>
+          </div>
+        {% endfor %}
+      </div>
+    </section><!-- End Portfolio Section -->
+
+  </main><!-- End #main -->
+
+{% endblock %}

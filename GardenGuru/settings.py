@@ -85,11 +85,24 @@ WSGI_APPLICATION = 'GardenGuru.wsgi.application'
 DATABASES = {
     'default': {
         'ENGINE': 'django.db.backends.sqlite3',
-        'NAME': os.path.join(BASE_DIR, 'db.sqlite3'),
-    }
+        'NAME': os.path.join(BASE_DIR, 'db.sqlite3')
+    },
+    
+    
 }
 db_from_env = dj_database_url.config(conn_max_age=600)
 DATABASES['default'].update(db_from_env)
+
+DATABASES = {
+    'default': {
+        'ENGINE': 'django.db.backends.postgresql_psycopg2',
+        'NAME':'dfapa3mpe48lum',
+        'USER':'jecwfxvlcgncww',
+        'PASSWORD':'d1d0f72f76a134df660b2c972ba3e8102ec8eea744987d2c2e7ea6de1f378a45',
+        'HOST':'ec2-18-202-8-133.eu-west-1.compute.amazonaws.com',
+        'PORT':'5432',
+    },
+} 
 
 # Password validation
 # https://docs.djangoproject.com/en/2.1/ref/settings/#auth-password-validators

@@ -14,6 +14,7 @@ class ProductCategoryGroup(models.Model):
 	def __str__(self):
 		return self.ProductCategoryGroupName
 
+
 class ProductCategory(models.Model):
 	ProductCategoryName = models.CharField(max_length=200)
 	ProductCategoryGroupName = models.ForeignKey(ProductCategoryGroup, on_delete=models.CASCADE)
@@ -26,29 +27,8 @@ class ProductCategory(models.Model):
 	ProductCategoryLastUpdated = models.DateTimeField(default=timezone.now)
 	bolDisplay = models.IntegerField(default=1)
 
-
 	def __str__(self):
 		return self.ProductCategoryName
-
-	'''
-	To add, enter following into shell:
-	from main.models import ProductCategory, ProductList, ProductCategoryGroup
-	catname = 'Pressure Washers'
-	catname2 = catname.replace(' ','')
-	p= ProductCategoryGroup.objects.get(ProductCategoryGroupName = 'Outdoor Power Tools')
-	p.productcategory_set.create(ProductCategoryName=catname,
-						ProductCategoryGroupName=p.ProductCategoryGroupName,
-						ProductCategoryDesc1='What are they + SEO keywords',
-						ProductCategoryDesc2='Additional notes',
-						ProductCategoryDesc3='How we test, how we score and what we look for',
-						ProductCategoryFeatures='Feature 1;Feature 2;Feature 3',
-						ProductCategoryAddInfo='Any other considerations',
-						ProductCategoryimg='assets/img/productcategories/' + catname2 + '.jpg',
-						)
-	p.save()
-
-	'''
-
 
 class ProductListSubCategory(models.Model):
 	SubCategoryName = models.CharField(max_length=400)
@@ -56,7 +36,6 @@ class ProductListSubCategory(models.Model):
 	ProductListSubCategoryLastUpdated = models.DateTimeField(default=timezone.now)
 	def __str__(self):
 		return self.SubCategoryName
-
 
 
 class ProductList(models.Model):
@@ -87,24 +66,6 @@ class ProductList(models.Model):
 		else:
 			return 'Good'
 
-
-
-
-	'''
-	from main.models import ProductList, ProductCategories
-	p = ProductCategories.objects.get(ProductCategoryName = 'Propagators')
-	p.productlist_set.create(ProductName='test1',
-							ProductCategoryName=p.ProductCategoryName,
-							ProductBrand='Brand Test 1',
-							ProductCost='10.99',
-							Productimg='assets/img/portfolio/Propagators.jpg',
-							ProductScore='58',
-							ProductScoreSummary='Feature 1: 100; Feature 2: 30, Feature 3: 50, Feature 4:20',
-							ProductPros='Pro1 test; Pro2 test; Pro3 test',
-							ProductCons='Con1 test; Con2 test; Con3 test',
-							bolDisplay=1)
-
-	'''
 
 class ProductCategoryFeature(models.Model):
 	FeatureName = models.CharField(max_length=200)
@@ -157,5 +118,3 @@ class Article(models.Model):
 
 	def ArticlesCount(self):
 		self.annotate(num_articles=Count("id"))
-
-

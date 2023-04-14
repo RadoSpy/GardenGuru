@@ -73,3 +73,4 @@ def article(response, id):
 												'Articles':Article.objects.all(),
 												'a':a,
 												})
+												

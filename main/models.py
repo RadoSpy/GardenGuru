@@ -13,7 +13,7 @@ class ProductCategoryGroup(models.Model):
 
 	def __str__(self):
 		return self.ProductCategoryGroupName
-
+'''
 
 class ProductCategory(models.Model):
 	ProductCategoryName = models.CharField(max_length=200)
@@ -118,3 +118,4 @@ class Article(models.Model):
 
 	def ArticlesCount(self):
 		self.annotate(num_articles=Count("id"))
+'''

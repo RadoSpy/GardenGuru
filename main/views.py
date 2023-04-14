@@ -1,6 +1,6 @@
 from django.shortcuts import render
 from django.http import HttpResponse
-from .models import ProductCategory, ProductList, ProductCategoryGroup, ProductCategoryFeature, ProductListSubCategory
+'''from .models import ProductCategory, ProductList, ProductCategoryGroup, ProductCategoryFeature, ProductListSubCategory
 from .models import NavSubCat, Article
 import datetime
 # Create your views here.
@@ -15,7 +15,23 @@ ProductCategories = ProductCategories.filter(id__in=ProductCategoriesToDisplay)
 
 TopProductCats = [4,8,6]
 
+'''
 
+def index(response):
+	return render(response, 'main/index.html',{})
+
+def productcategory(response,id):
+	return render(response, 'main/productcategory.html',{})
+
+def articlecategory(response,id):
+	return render(response, 'main/articlecategory.html',{})
+
+def article(response, id):
+	return render(response, 'main/article.html',{})
+
+
+
+'''
 def index(response):
 	return render(response, 'main/index.html', {'ProductCategories':ProductCategories,
 												'ProductCategoryGroups':ProductCategoryGroups,
@@ -73,4 +89,4 @@ def article(response, id):
 												'Articles':Article.objects.all(),
 												'a':a,
 												})
-												
+											'''

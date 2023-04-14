@@ -3,6 +3,7 @@ from .models import ProductCategory, ProductList, ProductCategoryGroup, ProductC
 from .models import NavCat, NavSubCat, Article, ArticleTag
 
 # Register your models here.
+
 admin.site.register(ProductCategory)
 admin.site.register(ProductList)
 admin.site.register(ProductCategoryGroup)

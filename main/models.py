@@ -13,7 +13,7 @@ class ProductCategoryGroup(models.Model):
 
 	def __str__(self):
 		return self.ProductCategoryGroupName
-'''
+
 
 class ProductCategory(models.Model):
 	ProductCategoryName = models.CharField(max_length=200)
@@ -30,6 +30,7 @@ class ProductCategory(models.Model):
 	def __str__(self):
 		return self.ProductCategoryName
 
+'''
 class ProductListSubCategory(models.Model):
 	SubCategoryName = models.CharField(max_length=400)
 	ProductCategoryName = models.ForeignKey(ProductCategory, on_delete=models.CASCADE, default=22)

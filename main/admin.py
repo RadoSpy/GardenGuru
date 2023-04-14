@@ -1,5 +1,5 @@
 from django.contrib import admin
-from .models import ProductCategoryGroup, ProductCategory
+from .models import ProductCategoryGroup, ProductCategory, ProductListSubCategory
 ''', ProductList, ProductListSubCategory, ProductCategoryFeature
 from .models import NavCat, NavSubCat, Article, ArticleTag
 '''
@@ -16,4 +16,4 @@ from .models import NavCat, NavSubCat, Article, ArticleTag
 admin.site.register(ProductCategory)
 admin.site.register(ProductCategoryGroup)
 #admin.site.register(ProductList)
-#admin.site.register(ProductListSubCategory)
+admin.site.register(ProductListSubCategory)

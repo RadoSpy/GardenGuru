@@ -40,7 +40,7 @@ class ProductListSubCategory(models.Model):
 	def __str__(self):
 		return self.SubCategoryName
 
-'''
+
 class ProductList(models.Model):
 	ProductName = models.CharField(max_length=200)
 	ProductCategoryName = models.ForeignKey(ProductCategory, on_delete=models.CASCADE)
@@ -69,16 +69,6 @@ class ProductList(models.Model):
 		else:
 			return 'Good'
 
-
-class ProductCategoryFeature(models.Model):
-	FeatureName = models.CharField(max_length=200)
-	FeatureDesc = models.CharField(max_length=1000, blank=True)
-	FeatureLastUpdated = models.DateTimeField(default=timezone.now)
-	ProductCategoryName = models.ForeignKey(ProductCategory, on_delete=models.CASCADE)
-
-	def __str__(self):
-		return self.FeatureName
-
 class NavCat(models.Model):
 	NavCatName = models.CharField(max_length=200)
 	LastUpdated = models.DateTimeField(auto_now_add=True)
@@ -93,9 +83,7 @@ class NavSubCat(models.Model):
 	ArticleCategoryimg = models.CharField(max_length=200, blank=True, null=True)
 
 	def __str__(self):
-		return self.NavSubCatName
-
-
+		return self.NavSubCatName	
 
 class ArticleTag(models.Model):
 	ArticleTagName = models.CharField(max_length=200)
@@ -121,4 +109,13 @@ class Article(models.Model):
 
 	def ArticlesCount(self):
 		self.annotate(num_articles=Count("id"))
-'''
+
+class ProductCategoryFeature(models.Model):
+	FeatureName = models.CharField(max_length=200)
+	FeatureDesc = models.CharField(max_length=1000, blank=True)
+	FeatureLastUpdated = models.DateTimeField(default=timezone.now)
+	ProductCategoryName = models.ForeignKey(ProductCategory, on_delete=models.CASCADE)
+
+	def __str__(self):
+		return self.FeatureName
+

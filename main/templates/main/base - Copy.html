@@ -52,7 +52,55 @@
           <!--<a href="index.html"><img src="assets/img/logo.png" alt="" class="img-fluid"></a>-->
         </div>
 
-        <!-- .navbar -->
+        <nav id="navbar" class="navbar">
+          <ul>
+            <li><a class="nav-link scrollto active" href="/">Home</a></li>
+            {% block nav_about %}<li><a class="nav-link scrollto" href="#about">About</a></li>{% endblock %}
+            <li class="dropdown"><a href=""><span>Growing Plants</span> <i class="bi bi-chevron-down"></i></a>
+              <ul>
+                {% for NavSubCat in NavSubCats %}
+                {% if NavSubCat.NavCatName.id == 1 %}
+                <li><a href="/articlecategory/{{NavSubCat.id}}">{{NavSubCat}}</a></li>
+                {% endif %}
+                {% endfor %}
+              </ul>
+            </li>
+            <li class="dropdown"><a href=""><span>Maintaining your Garden</span> <i class="bi bi-chevron-down"></i></a>
+              <ul>
+                {% for NavSubCat in NavSubCats %}
+                {% if NavSubCat.NavCatName.id == 2 %}
+                <li><a href="/articlecategory/{{NavSubCat.id}}">{{NavSubCat}}</a></li>
+                {% endif %}
+                {% endfor %}
+                
+              </ul>
+            </li>
+            <li class="dropdown nav-link scrollto"><a href="/#categories"><span>Reviews</span> <i class="bi bi-chevron-down"></i></a>
+              <ul>
+                {% for ProductCategoryGroup in ProductCategoryGroups %}
+                <li class="dropdown nav-link scrollto">
+                  <a href="#"><span>{{ProductCategoryGroup.ProductCategoryGroupName}}</span><i class="bi bi-chevron-right"></i></a>
+                  <ul>
+                  {% for ProductCategory in ProductCategories %}
+                  {% if ProductCategory.ProductCategoryGroupName.id == ProductCategoryGroup.id %}
+                    <li>
+                      <a href="/productcategory/{{ProductCategory.id}}">{{ProductCategory.ProductCategoryName}}</a>
+                    </li>
+                  {% endif %}
+                  {% endfor %}
+                  </ul>
+                </li>
+                {% endfor %}
+             
+              </ul>
+            </li>
+            
+            <!--<li><a class="nav-link scrollto" href="index.html#categories"></a>-->
+            <!--<li><a class="nav-link scrollto" href="#contact">Contact</a></li>-->
+            <!--<li><a class="getstarted scrollto" href="#about">Log in / Register</a></li>-->
+          </ul>
+          <i class="bi bi-list mobile-nav-toggle"></i>
+        </nav><!-- .navbar -->
 
       </div><!-- End Header Container -->
     </div>

@@ -5,11 +5,19 @@ from django.db.models import Count
 # Create your models here.
 
 
+class NavCat(models.Model):
+	NavCatName = models.CharField(max_length=200)
+	LastUpdated = models.DateTimeField(auto_now_add=True)
+
+	def __str__(self):
+		return self.NavCatName
+
 class ProductCategoryGroup(models.Model):
 	ProductCategoryGroupName = models.CharField(max_length=200)
 	ProductCategoryGroupimg = models.CharField(max_length=200)
 	ProductCategoryLastUpdated = models.DateTimeField(default=timezone.now)
 	bolDisplay = models.IntegerField(default=1)
+
 
 	def __str__(self):
 		return self.ProductCategoryGroupName
@@ -69,12 +77,8 @@ class ProductList(models.Model):
 		else:
 			return 'Good'
 
-class NavCat(models.Model):
-	NavCatName = models.CharField(max_length=200)
-	LastUpdated = models.DateTimeField(auto_now_add=True)
 
-	def __str__(self):
-		return self.NavCatName
+
 
 class NavSubCat(models.Model):
 	NavSubCatName = models.CharField(max_length=200)

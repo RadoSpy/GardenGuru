@@ -13,7 +13,8 @@ ProductCategories = ProductCategory.objects.all().filter(bolDisplay=1).order_by(
 ProductCategoriesToDisplay = [obj.id for obj in ProductCategories if obj.ProductCategoryGroupName.bolDisplay == 1]
 ProductCategories = ProductCategories.filter(id__in=ProductCategoriesToDisplay)
 
-TopProductCats = [4,8,6]
+
+
 
 
 '''
@@ -37,19 +38,19 @@ def index(response):
 												'ProductCategoryGroups':ProductCategoryGroups,
 												'Year':datetime.datetime.now().year,
 												'ProductLists':ProductList.objects.all().filter(bolDisplay=1),
-												'NavSubCats':NavSubCat.objects.all().order_by('NavSubCatName'),
+												'NavSubCats':NavSubCat.objects.filter(id__in=[3,4,5]).order_by('NavSubCatName'),
 												'Articles':Article.objects.all(),
-												'TopProductCats':TopProductCats,
+												
 
 												})
 
 def productcategory(response,id):
 	pc = ProductCategory.objects.get(id=id)
 	features = ProductCategoryFeature.objects.all().filter(ProductCategoryName=pc.id)
-	ProductLists = ProductList.objects.all().filter(bolDisplay=1).order_by('-AmazonStar')
+	ProductLists = ProductList.objects.all().filter(bolDisplay=1)
 	ProductsToDisplay = [obj.id for obj in ProductLists if obj.ProductCategoryName.bolDisplay == 1]
 	ProductLists = ProductLists.filter(id__in=ProductsToDisplay)
-	ProductLists = ProductLists.filter(ProductCategoryName=pc.id)
+	ProductLists = ProductLists.filter(ProductCategoryName=pc.id).order_by('-AmazonStar')
 	ProductsNotSetCount = ProductLists.filter(ProductListSubCategory=1).count()
 
 	ProductListSubCategories = ProductListSubCategory.objects.all().filter(ProductCategoryName=pc.id)
@@ -62,7 +63,7 @@ def productcategory(response,id):
 												'features':features,
 												'ProductListSubCategories':ProductListSubCategories,
 												'ProductsNotSetCount':ProductsNotSetCount,
-												'NavSubCats':NavSubCat.objects.all().order_by('NavSubCatName'),
+												'NavSubCats':NavSubCat.objects.filter(id__in=[3,4,5]).order_by('NavSubCatName'),
 												'Articles':Article.objects.all(),
 												})
 
@@ -73,7 +74,7 @@ def articlecategory(response,id):
 												'ProductCategoryGroups':ProductCategoryGroups,
 												'Year':datetime.datetime.now().year,
 												#'ProductLists':ProductList.objects.all().filter(bolDisplay=1),
-												'NavSubCats':NavSubCat.objects.all().order_by('NavSubCatName'),
+												'NavSubCats':NavSubCat.objects.filter(id__in=[3,4,5]).order_by('NavSubCatName'),
 												'Articles':Article.objects.all().order_by('-LastUpdated'),
 												'ac':ac,
 												})
@@ -85,8 +86,23 @@ def article(response, id):
 												'ProductCategoryGroups':ProductCategoryGroups,
 												'Year':datetime.datetime.now().year,
 												#'ProductLists':ProductList.objects.all().filter(bolDisplay=1),
-												'NavSubCats':NavSubCat.objects.all().order_by('NavSubCatName'),
+												'NavSubCats':NavSubCat.objects.filter(id__in=[3,4,5]).order_by('NavSubCatName'),
 												'Articles':Article.objects.all(),
 												'a':a,
 												})
 											
+def allarticles(response):
+	return render(response, 'main/allarticles.html', {'ProductCategories':ProductCategories,
+													'ProductCategoryGroups':ProductCategoryGroups,
+													'Year':datetime.datetime.now().year,
+													'NavSubCats':NavSubCat.objects.filter(id__in=[3,4,5]).order_by('NavSubCatName'),
+													'Articles':Article.objects.all().order_by('-LastUpdated'),
+													})
+
+def allproductcats(response):
+	return render(response, 'main/allproductcats.html', {'ProductCategories':ProductCategories,
+														'ProductCategoryGroups':ProductCategoryGroups,
+														'Year':datetime.datetime.now().year,
+														'NavSubCats':NavSubCat.objects.filter(id__in=[3,4,5]).order_by('NavSubCatName'),
+														'Articles':Article.objects.all().order_by('-LastUpdated'),
+														})

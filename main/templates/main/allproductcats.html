@@ -1,13 +1,13 @@
 {% extends 'main/base.html' %}
 
-{% block meta_title %}Garden Guru - {{ac.NavSubCatName}} - Gardening Tips & Articles {{Year}} {% endblock %}
-{% block meta_desc %}Take your gardening skills to the next level with our comprehensive guides and articles. Our expert writers share valuable tips, techniques, and advice on everything from planting to maintenance. Explore our library of informative resources to grow a lush, thriving garden today!{% endblock %}
+{% block meta_title %}UK Best Product Reviews, Test and Research {{Year}} {% endblock %}
+{% block meta_desc %}Reasearching and reviewing UK best Gardening Products in {{Year}}{% endblock %}
 
 {% block nav_about %}{% endblock %}
 
 {% block content %}
   <!-- ======= Hero Section ======= -->
-  <section id="hero" class="d-flex align-items-center" style="background: url('/static/{{ac.ArticleCategoryimg}}') center center; max-height: 160px;">
+  <section id="hero" class="d-flex align-items-center" style="background: url('/static/products.img') center center; max-height: 160px;">
     <div class="container text-center d-flex flex-column justify-content-bottom" data-aos="fade-in" data-aos-delay="200">
       
 
@@ -18,34 +18,34 @@
 
     <!-- ======= Team Section ======= -->
     <div class="container d-flex mt-4">
-      <h2 style="font-size:2.5rem">{{ac.NavCatName}} - {{ac.NavSubCatName}}</h2>
+      <h2 style="font-size:2.5rem">All products | Search product...</h2>
     </div>
     <section id="team" class="team mt-4">
       <div class="container">
         <div class="row d-flex justify-content-center">
           
-          {% for article in Articles %}
+          {% for ProductCatGroup in ProductCategoryGroups %}
 
             
 
-            {% if article.NavSubCatName.id == ac.id %}
+            
                 <div class="col-lg-4 d-flex justify-content-center mt-4">
                   <div class="member" data-aos="zoom-in" data-aos-delay="100" style="width:100%">
                     <a href="/article/{{article.id}}">
                     <div class="pic"><img src="{{article.Articleimg}}" class="img-fluid" alt=""></div>
                     <div class="member-info">
                       
-                      <h5><span>{{article.ArticleName}}</span></h5>
+                      <h5><span>{{ProductCategoryGroup.ProductCategoryGroupname}}</span></h5>
                       
                       
                     </div>
                     </a>
                     <div>
-                      <p style="font-size:0.75rem">Article written: {{article.LastUpdated|date:"d/m/Y" }}</p>
+                      <p style="font-size:0.75rem">Category added: {{article.LastUpdated|date:"d/m/Y" }}</p>
                     </div>
                   </div>
                 </div>
-              {% endif %}
+              
                 
             {% endfor %}
         </div>

@@ -1,10 +1,15 @@
 {% extends 'main/base.html' %}
 
+{% block meta_title %}UK Best {{pc.ProductCategoryName}} {{Year}}{% endblock %}
+{% block meta_desc %}
+  Reasearching and reviewing UK best {{pc.ProductCategoryName}} in {{Year}} - {{pc.ProductCategoryDesc1}}
+{% endblock %}
+
 {% block nav_about %}{% endblock %}
 
 {% block content %}
   <!-- ======= Hero Section ======= -->
-  <section id="hero" class="d-flex align-items-center" style="background: url('/static/{{pc.ProductCategoryimg}}') center center; max-height: 600px;">
+  <section id="hero" class="d-flex align-items-center" style="background: url('/static/{{pc.ProductCategoryimg}}') center center; max-height: 400px;">
     <div class="container text-center position-relative" data-aos="fade-in" data-aos-delay="200">
       <h1>{{pc.ProductCategoryName}}</h1>
       <h2>Helping You Find The best {{pc.ProductCategoryName}} available in UK in {{Year}}!</h2>
@@ -13,6 +18,124 @@
   </section><!-- End Hero -->
 
   <main id="main">
+
+    <!-- ============= DISCALIMER ============== -->
+    <div id="disclaimer" class="col-lg-12 text-center">
+      <small>
+
+        <p> <i class="bi bi-info-circle"></i>   We thoroughly research and fact-check each product - we <strong>DO NOT</strong> make any commision if you buy from our links to remain fair, honest and unbiased.</p>
+      </small>
+    </div>
+
+
+    <!-- ============= END DISCLAIMER ============== -->
+
+    <!-- ======= Why Us Section ======= -->
+    
+    <section id="why-us" class="why-us">
+      <div class="container">
+
+        <div class="row">
+          
+          <div class="col-lg-12 d-flex align-items-center">
+            <div class="icon-boxes d-flex flex-column justify-content-center">
+              <div class="row d-flex justify-content-center">
+                
+                <div class="col-xl-3 d-flex align-items-stretch mt-2" data-aos="zoom-in" data-aos-delay="100">
+                  <div class="icon-box mt-xl-0">
+                      <div class="d-flex justify-content-center">
+                          <h3>Best choice</h3>
+                      </div>
+                      <a href="{{ProductLists.0.AmazonLink}}">
+                        <img class="img-fluid img-responsive rounded p-3" src="{{ ProductLists.0.Productimg }}" >
+                      </a>
+                      <a href="{{ProductLists.0.AmazonLink}}">
+                        <h5>{{ProductLists.0.ProductName}}</h5>
+                        <p>{{ProductLists.0.ProductBrand}}</p>
+                    </a>
+                    <div class="starsandlink">
+                    <div class="d-flex justify-content-center">
+                      {% if ProductLists.0.AmazonStar > 4.7 %}
+                      <i class="bi bi-star-fill"></i><i class="bi bi-star-fill"></i><i class="bi bi-star-fill"></i><i class="bi bi-star-fill"></i><i class="bi bi-star-fill"></i>
+                      {% elif ProductLists.0.AmazonStar > 4.2 %}
+                      <i class="bi bi-star-fill"></i><i class="bi bi-star-fill"></i><i class="bi bi-star-fill"></i><i class="bi bi-star-fill"></i><i class="bi bi-star-half"></i>
+                      {% elif ProductLists.0.AmazonStar > 3.7 %}
+                      <i class="bi bi-star-fill"></i><i class="bi bi-star-fill"></i><i class="bi bi-star-fill"></i><i class="bi bi-star-fill"></i><i class="bi bi-star"></i>
+                      {% endif %}
+                    </div>
+                    <div class="d-flex justify-content-center">
+                      <a href="{{ProductLists.0.AmazonLink}}" class="btn-get-started scrollto">Find retailer</a>
+                    </div>
+                  </div>
+                  </div>
+                </div>
+                
+                <div class="col-xl-3 d-flex align-items-stretch mt-2" data-aos="zoom-in" data-aos-delay="100">
+                  <div class="icon-box mt-xl-0">
+                      <div class="d-flex justify-content-center">
+                          <h3>Close contender</h3>
+                      </div>
+                      <a href="{{ProductLists.1.AmazonLink}}">
+                        <img class="img-fluid img-responsive rounded p-3" src="{{ProductLists.1.Productimg}}">
+                      </a>
+                      <a href="{{ProductLists.1.AmazonLink}}">
+                        <h5>{{ProductLists.1.ProductName}}</h5>
+                        <p>{{ProductLists.1.ProductBrand}}</p>
+                    </a>
+                    <div class="starsandlink">
+                    <div class="d-flex justify-content-center">
+                      {% if ProductLists.1.AmazonStar > 4.7 %}
+                      <i class="bi bi-star-fill"></i><i class="bi bi-star-fill"></i><i class="bi bi-star-fill"></i><i class="bi bi-star-fill"></i><i class="bi bi-star-fill"></i>
+                      {% elif ProductLists.1.AmazonStar > 4.2 %}
+                      <i class="bi bi-star-fill"></i><i class="bi bi-star-fill"></i><i class="bi bi-star-fill"></i><i class="bi bi-star-fill"></i><i class="bi bi-star-half"></i>
+                      {% elif ProductLists.1.AmazonStar > 3.7 %}
+                      <i class="bi bi-star-fill"></i><i class="bi bi-star-fill"></i><i class="bi bi-star-fill"></i><i class="bi bi-star-fill"></i><i class="bi bi-star"></i>
+                      {% endif %}
+                    </div>
+                    <div class="d-flex justify-content-center">
+                      <a href="{{ProductLists.1.AmazonLink}}" class="btn-get-started scrollto">Find retailer</a>
+                    </div>
+                  </div>
+                  </div>
+                </div>
+
+                <div class="col-xl-3 d-flex mt-2" data-aos="zoom-in" data-aos-delay="100">
+                  <div class="icon-box mt-xl-0">
+                      <div class="d-flex justify-content-center">
+                          <h3>Also good</h3>
+                      </div>
+                      <a href="{{ProductLists.2.AmazonLink}}">
+                        <img class="img-fluid img-responsive rounded p-3" src="{{ProductLists.2.Productimg}}" >
+                      </a>
+                      <a href="{{ProductLists.2.AmazonLink}}">
+                        <h5>{{ProductLists.2.ProductName}}</h5>
+                        <p>{{ProductLists.2.ProductBrand}}</p>
+                    </a>
+                    <div class="starsandlink">
+                    <div class="d-flex justify-content-center">
+                      {% if ProductLists.2.AmazonStar > 4.7 %}
+                      <i class="bi bi-star-fill"></i><i class="bi bi-star-fill"></i><i class="bi bi-star-fill"></i><i class="bi bi-star-fill"></i><i class="bi bi-star-fill"></i>
+                      {% elif ProductLists.2.AmazonStar > 4.2 %}
+                      <i class="bi bi-star-fill"></i><i class="bi bi-star-fill"></i><i class="bi bi-star-fill"></i><i class="bi bi-star-fill"></i><i class="bi bi-star-half"></i>
+                      {% elif ProductLists.2.AmazonStar > 3.7 %}
+                      <i class="bi bi-star-fill"></i><i class="bi bi-star-fill"></i><i class="bi bi-star-fill"></i><i class="bi bi-star-fill"></i><i class="bi bi-star"></i>
+                      {% endif %}
+                    </div>
+                    <div class="d-flex justify-content-center">
+                      <a href="{{ProductLists.2.AmazonLink}}" class="btn-get-started scrollto">Find retailer</a>
+                    </div>
+                    </div>
+                  </div>
+                </div>
+                
+              </div>
+            </div>
+            <!-- End .content-->
+          </div>
+        </div>
+
+      </div>
+    </section><!-- End Why Us Section -->
 
     <!-- ======= Clients Section ======= -->
     <!--<section id="clients" class="clients">
@@ -108,7 +231,7 @@
         {% endif %}
 
 
-      <div class="d-flex justify-content-center row portfolio-container">
+      <div class="d-flex justify-content-center row portfolio-container" id="productlist">
         <div class="col-md-12">
           <!--===PRODUCT START-->
           {% for Product in ProductLists %}
@@ -133,7 +256,7 @@
                 </div>
                 
                 <div class="d-flex justify-content-center bg-white">
-                  <h5><strong><a href="{{Product.AmazonLink}}">£{{Product.ProductCost|floatformat:2}} on Amazon</a></strong></h5>
+                  <h5><strong><a class="linkbtn" href="{{Product.AmazonLink}}">£{{Product.ProductCost|floatformat:2}} on Amazon</a></strong></h5>
                 </div>
               </div>
             </div>

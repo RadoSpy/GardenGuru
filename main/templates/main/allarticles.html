@@ -1,0 +1,65 @@
+{% extends 'main/base.html' %}
+
+{% block meta_title %}Garden Guru - Gardening Tips & Articles {{Year}} {% endblock %}
+{% block meta_desc %}Take your gardening skills to the next level with our comprehensive guides and articles. Our expert writers share valuable tips, techniques, and advice on everything from planting to maintenance. Explore our library of informative resources to grow a green, lush, thriving garden today!{% endblock %}
+
+{% block nav_about %}{% endblock %}
+
+{% block content %}
+  <!-- ======= Hero Section ======= -->
+  <section id="hero" class="d-flex align-items-center" style="background: url('/static/img/allarticles.jpg') center center; max-height: 160px;">
+    <div class="container text-center d-flex flex-column justify-content-bottom" data-aos="fade-in" data-aos-delay="200">
+      
+
+    </div>
+  </section><!-- End Hero -->
+
+  <main id="main">
+
+    <!-- ======= Team Section ======= -->
+    <div class="container d-flex mt-4">
+      <h2 style="font-size:2.5rem">All Articles | Search article... </h2>
+    </div>
+    <section id="team" class="team mt-4">
+      <div class="container">
+        <div class="row d-flex justify-content-center">
+          
+          {% for article in Articles %}
+
+            
+
+            
+                <div class="col-lg-4 d-flex justify-content-center mt-4">
+                  <div class="member d-flex flex-column" data-aos="zoom-in" data-aos-delay="100" style="width:100%">
+                    
+                      <a href="/article/{{article.id}}">
+                      <div class="pic"><img src="{{article.Articleimg}}" class="img-fluid" alt=""></div>
+                      <div class="member-info">
+                        
+                        <h5><span>{{article.ArticleName}}</span></h5>
+                        
+                        
+                      </div>
+
+                      </a>
+                      <div>
+                        <p style="font-size:0.75rem">Article written: {{article.LastUpdated|date:"d/m/Y" }}</p>
+                      </div>
+                    
+                  </div>
+                </div>              
+            {% endfor %}
+          
+        </div>
+      </div>
+    </section>
+    <!-- End Team Section -->
+
+    
+   
+
+    
+
+  </main><!-- End #main -->
+
+{% endblock %}

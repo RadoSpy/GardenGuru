@@ -7,9 +7,11 @@
   <meta charset="utf-8">
   <meta content="width=device-width, initial-scale=1.0" name="viewport">
 
-  <title>Garden Guru</title>
-  <meta content="This web" name="description">
-  <meta content="" name="keywords">
+  <title>{% block meta_title %}{% endblock %}</title>
+  <meta name="description" content="{% block meta_desc %}{% endblock %}">
+  <meta name="robots" content="index, follow">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <meta charset="UTF-8">
 
   <!-- Favicons -->
   <link href="{% static 'assets/img/favicon.png' %}" rel="icon">
@@ -55,27 +57,20 @@
         <nav id="navbar" class="navbar">
           <ul>
             <li><a class="nav-link scrollto active" href="/">Home</a></li>
-            {% block nav_about %}<li><a class="nav-link scrollto" href="#about">About</a></li>{% endblock %}
-            <li class="dropdown"><a href=""><span>Growing Plants</span> <i class="bi bi-chevron-down"></i></a>
+            
+            <li class="dropdown"><a href=""><span>Articles</span> <i class="bi bi-chevron-down"></i></a>
+              <!--/allarticles-->
               <ul>
                 {% for NavSubCat in NavSubCats %}
-                {% if NavSubCat.NavCatName.id == 1 %}
+
                 <li><a href="/articlecategory/{{NavSubCat.id}}">{{NavSubCat}}</a></li>
-                {% endif %}
-                {% endfor %}
-              </ul>
-            </li>
-            <li class="dropdown"><a href=""><span>Maintaining your Garden</span> <i class="bi bi-chevron-down"></i></a>
-              <ul>
-                {% for NavSubCat in NavSubCats %}
-                {% if NavSubCat.NavCatName.id == 2 %}
-                <li><a href="/articlecategory/{{NavSubCat.id}}">{{NavSubCat}}</a></li>
-                {% endif %}
-                {% endfor %}
                 
+                {% endfor %}
               </ul>
             </li>
-            <li class="dropdown nav-link scrollto"><a href="/#categories"><span>Reviews</span> <i class="bi bi-chevron-down"></i></a>
+            
+            <li class="dropdown nav-link scrollto"><a href=""><span>Product Reviews</span> <i class="bi bi-chevron-down"></i></a>
+              <!--/allproductcats-->
               <ul>
                 {% for ProductCategoryGroup in ProductCategoryGroups %}
                 <li class="dropdown nav-link scrollto">
@@ -94,7 +89,7 @@
              
               </ul>
             </li>
-            
+            {% block nav_about %}<li><a class="nav-link scrollto" href="#about">About</a></li>{% endblock %}
             <!--<li><a class="nav-link scrollto" href="index.html#categories"></a>-->
             <!--<li><a class="nav-link scrollto" href="#contact">Contact</a></li>-->
             <!--<li><a class="getstarted scrollto" href="#about">Log in / Register</a></li>-->

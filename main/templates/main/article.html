@@ -1,5 +1,8 @@
 {% extends 'main/base.html' %}
 
+{% block meta_title %}{{a.ArticleName}}{% endblock %}
+{% block meta_desc %}{{a.NavSubCatName}} gardening article focusing on {{a.ArticleTagName}}, titled {{a.ArticleName}} {% endblock %}
+
 {% block nav_about %}{% endblock %}
 
 {% block content %}

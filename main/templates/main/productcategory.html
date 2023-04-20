@@ -12,7 +12,7 @@
   <section id="hero" class="d-flex align-items-center" style="background: url('/static/{{pc.ProductCategoryimg}}') center center; max-height: 400px;">
     <div class="container text-center position-relative" data-aos="fade-in" data-aos-delay="200">
       <h1>{{pc.ProductCategoryName}}</h1>
-      <h2>Helping You Find The best {{pc.ProductCategoryName}} available in UK in {{Year}}!</h2>
+      <h2>Helping You Find The best {{pc.ProductCategoryName}} in UK {{Year}}!</h2>
       <a href="/#categories" class="btn-get-started scrollto">Back to Product Categories</a>
     </div>
   </section><!-- End Hero -->
@@ -55,13 +55,9 @@
                     </a>
                     <div class="starsandlink">
                     <div class="d-flex justify-content-center">
-                      {% if ProductLists.0.AmazonStar > 4.7 %}
+                      
                       <i class="bi bi-star-fill"></i><i class="bi bi-star-fill"></i><i class="bi bi-star-fill"></i><i class="bi bi-star-fill"></i><i class="bi bi-star-fill"></i>
-                      {% elif ProductLists.0.AmazonStar > 4.2 %}
-                      <i class="bi bi-star-fill"></i><i class="bi bi-star-fill"></i><i class="bi bi-star-fill"></i><i class="bi bi-star-fill"></i><i class="bi bi-star-half"></i>
-                      {% elif ProductLists.0.AmazonStar > 3.7 %}
-                      <i class="bi bi-star-fill"></i><i class="bi bi-star-fill"></i><i class="bi bi-star-fill"></i><i class="bi bi-star-fill"></i><i class="bi bi-star"></i>
-                      {% endif %}
+                      
                     </div>
                     <div class="d-flex justify-content-center">
                       <a href="{{ProductLists.0.AmazonLink}}" class="btn-get-started scrollto">Find retailer</a>
@@ -84,13 +80,9 @@
                     </a>
                     <div class="starsandlink">
                     <div class="d-flex justify-content-center">
-                      {% if ProductLists.1.AmazonStar > 4.7 %}
-                      <i class="bi bi-star-fill"></i><i class="bi bi-star-fill"></i><i class="bi bi-star-fill"></i><i class="bi bi-star-fill"></i><i class="bi bi-star-fill"></i>
-                      {% elif ProductLists.1.AmazonStar > 4.2 %}
+                      
                       <i class="bi bi-star-fill"></i><i class="bi bi-star-fill"></i><i class="bi bi-star-fill"></i><i class="bi bi-star-fill"></i><i class="bi bi-star-half"></i>
-                      {% elif ProductLists.1.AmazonStar > 3.7 %}
-                      <i class="bi bi-star-fill"></i><i class="bi bi-star-fill"></i><i class="bi bi-star-fill"></i><i class="bi bi-star-fill"></i><i class="bi bi-star"></i>
-                      {% endif %}
+                      
                     </div>
                     <div class="d-flex justify-content-center">
                       <a href="{{ProductLists.1.AmazonLink}}" class="btn-get-started scrollto">Find retailer</a>
@@ -102,7 +94,7 @@
                 <div class="col-xl-3 d-flex mt-2" data-aos="zoom-in" data-aos-delay="100">
                   <div class="icon-box mt-xl-0">
                       <div class="d-flex justify-content-center">
-                          <h3>Also good</h3>
+                          <h3>Alternative pick</h3>
                       </div>
                       <a href="{{ProductLists.2.AmazonLink}}">
                         <img class="img-fluid img-responsive rounded p-3" src="{{ProductLists.2.Productimg}}" >
@@ -113,13 +105,9 @@
                     </a>
                     <div class="starsandlink">
                     <div class="d-flex justify-content-center">
-                      {% if ProductLists.2.AmazonStar > 4.7 %}
-                      <i class="bi bi-star-fill"></i><i class="bi bi-star-fill"></i><i class="bi bi-star-fill"></i><i class="bi bi-star-fill"></i><i class="bi bi-star-fill"></i>
-                      {% elif ProductLists.2.AmazonStar > 4.2 %}
-                      <i class="bi bi-star-fill"></i><i class="bi bi-star-fill"></i><i class="bi bi-star-fill"></i><i class="bi bi-star-fill"></i><i class="bi bi-star-half"></i>
-                      {% elif ProductLists.2.AmazonStar > 3.7 %}
+                      
                       <i class="bi bi-star-fill"></i><i class="bi bi-star-fill"></i><i class="bi bi-star-fill"></i><i class="bi bi-star-fill"></i><i class="bi bi-star"></i>
-                      {% endif %}
+                      
                     </div>
                     <div class="d-flex justify-content-center">
                       <a href="{{ProductLists.2.AmazonLink}}" class="btn-get-started scrollto">Find retailer</a>
@@ -284,7 +272,7 @@
                   </div>
                 </div>
               </div>
-              <div class="productdesc text-center mt-2">
+              <div class="productdesc text-justify mt-2">
                 <h6><small>{{Product.ProductDesc}}</small></h6>
               </div>
               </div>

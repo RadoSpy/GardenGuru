@@ -411,7 +411,7 @@ h6 {
 
 #hero h1 {
   /*background: rgba(0, 0, 0, 0.5);*/
-  background: linear-gradient(to right, transparent, rgba(0, 153, 82, 0.6), transparent);
+  background: linear-gradient(to right, transparent, rgba(0, 0, 0, 0.5), transparent);
   margin: 0 0 10px 0;
   font-size: 48px;
   font-weight: 700;
@@ -422,7 +422,7 @@ h6 {
 }
 
 #hero h2 {
-  background: linear-gradient(to right, transparent, rgba(0, 153, 82, 0.6), transparent);
+  background: linear-gradient(to right, transparent, rgba(0, 0, 0, 0.5), transparent);
   color: #eee;
   margin-bottom: 40px;
   font-size: 15px;
@@ -433,7 +433,7 @@ h6 {
 }
 
 #hero .btn-get-started {
-  background: rgba(0, 153, 82, 0.6);
+  background: rgba(0, 0, 0, 0.5);
   font-family: "Poppins", sans-serif;
   text-transform: uppercase;
   font-weight: 500;
@@ -640,7 +640,7 @@ section {
   background-size:cover;
   display: block;
   margin:auto;
- 
+  
 }
 
 .articlelink {

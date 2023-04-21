@@ -28,7 +28,7 @@ SECRET_KEY = 'kf$du9=s(i(zofd=@1&ds4)4z6jmb08^(kc0jg2a_@!@5i0n4j'
 # SECURITY WARNING: don't run with debug turned on in production!
 DEBUG = True
 
-ALLOWED_HOSTS = ['gardenguru.herokuapp.com','gardenguru.com','gardenguru.co.uk', '127.0.0.1',]
+ALLOWED_HOSTS = ['gardenguru.herokuapp.com','gardenguru.com','gardenguru.co.uk', 'www.gardenguru.co.uk', '127.0.0.1',]
 
 
 # Application definition
@@ -57,6 +57,8 @@ MIDDLEWARE = [
     'django.middleware.clickjacking.XFrameOptionsMiddleware',
     'whitenoise.middleware.WhiteNoiseMiddleware',
 ]
+
+#SECURE_SSL_REDIRECT = True
 
 ROOT_URLCONF = 'GardenGuru.urls'
 

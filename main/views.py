@@ -14,8 +14,9 @@ ProductCategoriesToDisplay = [obj.id for obj in ProductCategories if obj.Product
 ProductCategories = ProductCategories.filter(id__in=ProductCategoriesToDisplay)
 
 
+NavSubCats = NavSubCat.objects.filter(id__in=[3,4,5]).order_by('NavSubCatName')
 
-
+Articles = Article.objects.all().order_by('-LastUpdated')
 
 '''
 def index(response):
@@ -38,8 +39,8 @@ def index(response):
 												'ProductCategoryGroups':ProductCategoryGroups,
 												'Year':datetime.datetime.now().year,
 												'ProductLists':ProductList.objects.all().filter(bolDisplay=1),
-												'NavSubCats':NavSubCat.objects.filter(id__in=[3,4,5]).order_by('NavSubCatName'),
-												'Articles':Article.objects.all(),
+												'NavSubCats':NavSubCats,
+												'Articles':Articles,
 												
 
 												})
@@ -63,8 +64,8 @@ def productcategory(response,id):
 												'features':features,
 												'ProductListSubCategories':ProductListSubCategories,
 												'ProductsNotSetCount':ProductsNotSetCount,
-												'NavSubCats':NavSubCat.objects.filter(id__in=[3,4,5]).order_by('NavSubCatName'),
-												'Articles':Article.objects.all(),
+												'NavSubCats':NavSubCats,
+												'Articles':Articles,
 												})
 
 def articlecategory(response,id):
@@ -74,8 +75,8 @@ def articlecategory(response,id):
 												'ProductCategoryGroups':ProductCategoryGroups,
 												'Year':datetime.datetime.now().year,
 												#'ProductLists':ProductList.objects.all().filter(bolDisplay=1),
-												'NavSubCats':NavSubCat.objects.filter(id__in=[3,4,5]).order_by('NavSubCatName'),
-												'Articles':Article.objects.all().order_by('-LastUpdated'),
+												'NavSubCats':NavSubCats,
+												'Articles':Articles,
 												'ac':ac,
 												})
 
@@ -86,8 +87,8 @@ def article(response, id):
 												'ProductCategoryGroups':ProductCategoryGroups,
 												'Year':datetime.datetime.now().year,
 												#'ProductLists':ProductList.objects.all().filter(bolDisplay=1),
-												'NavSubCats':NavSubCat.objects.filter(id__in=[3,4,5]).order_by('NavSubCatName'),
-												'Articles':Article.objects.all(),
+												'NavSubCats':NavSubCats,
+												'Articles':Articles,
 												'a':a,
 												})
 											
@@ -95,14 +96,22 @@ def allarticles(response):
 	return render(response, 'main/allarticles.html', {'ProductCategories':ProductCategories,
 													'ProductCategoryGroups':ProductCategoryGroups,
 													'Year':datetime.datetime.now().year,
-													'NavSubCats':NavSubCat.objects.filter(id__in=[3,4,5]).order_by('NavSubCatName'),
-													'Articles':Article.objects.all().order_by('-LastUpdated'),
+													'NavSubCats':NavSubCats,
+													'Articles':Articles,
 													})
 
 def allproductcats(response):
 	return render(response, 'main/allproductcats.html', {'ProductCategories':ProductCategories,
 														'ProductCategoryGroups':ProductCategoryGroups,
 														'Year':datetime.datetime.now().year,
-														'NavSubCats':NavSubCat.objects.filter(id__in=[3,4,5]).order_by('NavSubCatName'),
-														'Articles':Article.objects.all().order_by('-LastUpdated'),
+														'NavSubCats':NavSubCats,
+														'Articles':Articles,
+														})
+
+def sitemap(response):
+	return render(response, 'main/sitemap.html', {'ProductCategories':ProductCategories,
+														'ProductCategoryGroups':ProductCategoryGroups,
+														'Year':datetime.datetime.now().year,
+														'NavSubCats':NavSubCats,
+														'Articles':Articles,
 														})

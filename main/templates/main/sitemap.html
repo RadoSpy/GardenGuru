@@ -1,0 +1,86 @@
+{% extends 'main/base.html' %}
+
+{% block meta_title %}Sitemap of Garden Guru - UK Best {{Year}} Gardening Products {% endblock %}
+{% block meta_desc %}
+  Reasearching and reviewing UK best {{pc.ProductCategoryName}} in {{Year}} - Sitemap
+{% endblock %}
+
+
+{% block content %}
+  <!-- ======= Hero Section ======= -->
+  <section id="hero" class="d-flex align-items-center" style="max-height: 400px"> <!--style="background: url('/static/{{pc.ProductCategoryimg}}') center center; max-height: 400px;"-->
+    <div class="container text-center position-relative" data-aos="fade-in" data-aos-delay="200">
+      <h1>Sitemap</h1>
+      <h2>Garden Guru</h2>
+      <a href="/" class="btn-get-started scrollto">Back to Main Page</a>
+    </div>
+  </section><!-- End Hero -->
+
+  <main id="main">
+
+    
+    
+
+    
+    <!-- ======= About Section ======= -->
+    <section id="sitemap" class="sitemap">
+      <div class="container m-2 p-2" style="background:#fff">
+        <div class="col-lg-12">
+            
+            <h2>Articles</h2>
+            <ul>
+              {% for NavSubCat in NavSubCats %}
+              <li><a href="/articlecategory/{{NavSubCat.id}}">{{NavSubCat}}</a></li>
+                <ul>
+                  {% for a in Articles %}
+
+                    {% if a.NavSubCatName.id == NavSubCat.id %}
+                      <li><a href="/article/{{a.id}}">{{a.ArticleTagName}} - {{a.ArticleName}}</a></li>
+                    {% endif %}
+
+                  {% endfor %}
+                </ul>
+              {% endfor %}
+            </ul>
+
+            <h2>Product Categories </h2>
+            <ul>
+              {% for ProductCategoryGroup in ProductCategoryGroups %}
+              <li><strong>{{ProductCategoryGroup.ProductCategoryGroupName}}</strong></li>
+                <ul>
+                  {% for ProductCategory in ProductCategories %}
+                  {% if ProductCategory.ProductCategoryGroupName.id == ProductCategoryGroup.id %}
+                      <li><a href="/productcategory/{{ProductCategory.id}}">Best UK {{ProductCategory.ProductCategoryName}} {{Year}} </a></li>
+                  {% endif %}
+                  {% endfor %}
+                </ul>
+              {% endfor %}
+            </ul>
+
+            <h2>Other Pages</h2>
+            <ul>
+              <!--<li>About</li>
+                <ul>
+                  <li></li>
+                </ul>
+              -->
+              <li><a href="/sitemap">Sitemap</a></li>
+            </ul>
+
+
+            
+          
+          
+        </div>
+      </div>
+    </section><!-- End About Section -->
+
+
+    
+   
+
+    
+
+  </main><!-- End #main -->
+
+{% endblock %}

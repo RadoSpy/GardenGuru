@@ -12,7 +12,7 @@ class NavCat(models.Model):
 
 	def __str__(self):
 		return self.NavCatName
-'''
+
 class ProductCategoryGroup(models.Model):
 	ProductCategoryGroupName = models.CharField(max_length=200)
 	ProductCategoryGroupimg = models.CharField(max_length=200)
@@ -22,7 +22,7 @@ class ProductCategoryGroup(models.Model):
 
 	def __str__(self):
 		return self.ProductCategoryGroupName
-
+'''
 
 class ProductCategory(models.Model):
 	ProductCategoryName = models.CharField(max_length=200)

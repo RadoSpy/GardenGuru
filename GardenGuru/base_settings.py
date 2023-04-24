@@ -30,6 +30,7 @@ ALLOWED_HOSTS = ['gardenguru.herokuapp.com','garden-guru.com','garden-guru.co.uk
 
 # Application definition
 
+
 INSTALLED_APPS = [
     'django.contrib.admin',
     'django.contrib.auth',

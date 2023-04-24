@@ -1,4 +1,5 @@
 from django.db import models
+from django.urls import reverse
 from django.utils import timezone
 from ckeditor.fields import RichTextField
 from django.db.models import Count
@@ -38,7 +39,8 @@ class ProductCategory(models.Model):
 	def __str__(self):
 		return self.ProductCategoryName
 
-
+	def get_absolute_url(self):
+		return reverse('product category', args=[str(self.id)])
 
 
 class ProductListSubCategory(models.Model):
@@ -89,6 +91,9 @@ class NavSubCat(models.Model):
 	def __str__(self):
 		return self.NavSubCatName	
 
+
+
+
 class ArticleTag(models.Model):
 	ArticleTagName = models.CharField(max_length=200)
 	NavSubCatName = models.ForeignKey(NavSubCat, on_delete=models.CASCADE)
@@ -96,6 +101,7 @@ class ArticleTag(models.Model):
 
 	def __str__(self):
 		return self.ArticleTagName
+
 
 
 class Article(models.Model):
@@ -113,6 +119,11 @@ class Article(models.Model):
 
 	def ArticlesCount(self):
 		self.annotate(num_articles=Count("id"))
+
+	def get_absolute_url(self):
+		return reverse('article', args=[str(self.id)])
+
+
 
 class ProductCategoryFeature(models.Model):
 	FeatureName = models.CharField(max_length=200)

@@ -1,5 +1,6 @@
 from django.shortcuts import render
 from django.http import HttpResponse
+
 from .models import ProductCategory, ProductList, ProductCategoryGroup, ProductCategoryFeature, ProductListSubCategory
 from .models import NavSubCat, Article
 import datetime
@@ -30,6 +31,16 @@ def articlecategory(response,id):
 
 def article(response, id):
 	return render(response, 'main/article.html',{})
+
+def allarticles(response, id):
+	return render(response, 'main/article.html',{})
+
+def allproductcats(response, id):
+	return render(response, 'main/article.html',{})
+
+def sitemap(response, id):
+	return render(response, 'main/article.html',{})
+
 '''
 
 

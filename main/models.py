@@ -102,7 +102,7 @@ class ArticleTag(models.Model):
 	def __str__(self):
 		return self.ArticleTagName
 
-'''
+
 
 class Article(models.Model):
 	ArticleName = models.CharField(max_length=200)
@@ -124,7 +124,7 @@ class Article(models.Model):
 		return reverse('article', args=[str(self.id)])
 
 
-
+'''
 class ProductCategoryFeature(models.Model):
 	FeatureName = models.CharField(max_length=200)
 	FeatureDesc = models.CharField(max_length=1000, blank=True)

@@ -1,6 +1,6 @@
 from django.shortcuts import render
 from django.http import HttpResponse
-'''
+
 from .models import ProductCategory, ProductList, ProductCategoryGroup, ProductCategoryFeature, ProductListSubCategory
 from .models import NavSubCat, Article
 import datetime
@@ -125,4 +125,4 @@ def sitemap(response):
 														'Year':datetime.datetime.now().year,
 														'NavSubCats':NavSubCats,
 														'Articles':Articles,
-														})'''
+														})

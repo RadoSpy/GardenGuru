@@ -50,7 +50,7 @@ class ProductListSubCategory(models.Model):
 	def __str__(self):
 		return self.SubCategoryName
 
-'''
+
 class ProductList(models.Model):
 	ProductName = models.CharField(max_length=200)
 	ProductCategoryName = models.ForeignKey(ProductCategory, on_delete=models.CASCADE)
@@ -80,7 +80,7 @@ class ProductList(models.Model):
 			return 'Good'
 
 
-
+'''
 
 class NavSubCat(models.Model):
 	NavSubCatName = models.CharField(max_length=200)

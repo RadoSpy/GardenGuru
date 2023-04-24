@@ -1,13 +1,13 @@
 from django.urls import path
 from . import views
 
-from main.sitemaps import ArticleSitemap,ProductCategorySitemap, StaticViewSitemap
+'''from main.sitemaps import ArticleSitemap,ProductCategorySitemap, StaticViewSitemap'''
 from django.contrib.sitemaps.views import sitemap 
 
 sitemaps = {
-	'Sitemap_Articles':ArticleSitemap,
-	'Sitemap_ProductCategories':ProductCategorySitemap,
-	'Sitemap_static':StaticViewSitemap,
+	#'Sitemap_Articles':ArticleSitemap,
+	#'Sitemap_ProductCategories':ProductCategorySitemap,
+	#'Sitemap_static':StaticViewSitemap,
 }
 
 urlpatterns = [

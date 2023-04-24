@@ -1,6 +1,6 @@
 from django.contrib.sitemaps import Sitemap
 from django.urls import reverse
-
+'''
 from main.models import Article
 from main.models import ProductCategory
 
@@ -19,4 +19,4 @@ class StaticViewSitemap(Sitemap):
 		return ['sitemap']
 
 	def location(self, item):
-		return reverse(item)
+		return reverse(item)'''

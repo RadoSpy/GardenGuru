@@ -42,7 +42,7 @@ class ProductCategory(models.Model):
 	def get_absolute_url(self):
 		return reverse('product category', args=[str(self.id)])
 
-'''
+
 class ProductListSubCategory(models.Model):
 	SubCategoryName = models.CharField(max_length=400)
 	ProductCategoryName = models.ForeignKey(ProductCategory, on_delete=models.CASCADE, default=22)
@@ -50,7 +50,7 @@ class ProductListSubCategory(models.Model):
 	def __str__(self):
 		return self.SubCategoryName
 
-
+'''
 class ProductList(models.Model):
 	ProductName = models.CharField(max_length=200)
 	ProductCategoryName = models.ForeignKey(ProductCategory, on_delete=models.CASCADE)

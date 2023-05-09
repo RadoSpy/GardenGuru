@@ -22,7 +22,7 @@ class ProductCategoryGroup(models.Model):
 
 	def __str__(self):
 		return self.ProductCategoryGroupName
-
+'''
 
 class ProductCategory(models.Model):
 	ProductCategoryName = models.CharField(max_length=200)
@@ -136,3 +136,4 @@ class ProductCategoryFeature(models.Model):
 	def __str__(self):
 		return self.FeatureName
 
+'''

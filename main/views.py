@@ -1,13 +1,13 @@
 from django.shortcuts import render
 from django.http import HttpResponse
-
+'''
 from .models import ProductCategory, ProductList, ProductCategoryGroup, ProductCategoryFeature, ProductListSubCategory
 from .models import NavSubCat, Article
 import datetime
 # Create your views here.
+'''
 
-
-
+'''
 ProductCategoryGroups = ProductCategoryGroup.objects.all().filter(bolDisplay=1).order_by('ProductCategoryGroupName')
 
 ProductCategories = ProductCategory.objects.all().filter(bolDisplay=1).order_by('ProductCategoryName')
@@ -125,4 +125,4 @@ def sitemap(response):
 														'Year':datetime.datetime.now().year,
 														'NavSubCats':NavSubCats,
 														'Articles':Articles,
-														})
+														})'''

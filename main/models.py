@@ -36,6 +36,7 @@ class ProductCategory(models.Model):
 	ProductCategoryLastUpdated = models.DateTimeField(default=timezone.now)
 	bolDisplay = models.IntegerField(default=1)
 
+
 	def __str__(self):
 		return self.ProductCategoryName
 
@@ -64,6 +65,7 @@ class ProductList(models.Model):
 	ProductListSubCategory = models.ForeignKey(ProductListSubCategory, on_delete=models.CASCADE, default=1)
 	ProductLastUpdated = models.DateTimeField(default=timezone.now)
 	bolDisplay = models.IntegerField(default=1)
+	ProductBody = RichTextField(blank=True, null=True)
 
 	def __str__(self):
 		return self.ProductName

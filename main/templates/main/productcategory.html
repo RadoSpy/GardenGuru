@@ -47,7 +47,7 @@
                           <h3>Best choice</h3>
                       </div>
                       <a href="{{ProductLists.0.AmazonLink}}">
-                        <img class="img-fluid img-responsive rounded p-3" src="{{ ProductLists.0.Productimg }}" >
+                        <img class="img-fluid img-responsive rounded p-3" src="{{ ProductLists.0.Productimg }}" alt="#1 of the best {{ ProductLists.0.ProductCategoryName }} in UK in {{Year}}">
                       </a>
                       <a href="{{ProductLists.0.AmazonLink}}">
                         <h5>{{ProductLists.0.ProductName}}</h5>
@@ -72,7 +72,7 @@
                           <h3>Close contender</h3>
                       </div>
                       <a href="{{ProductLists.1.AmazonLink}}">
-                        <img class="img-fluid img-responsive rounded p-3" src="{{ProductLists.1.Productimg}}">
+                        <img class="img-fluid img-responsive rounded p-3" src="{{ProductLists.1.Productimg}}" alt="#2 of the best {{ ProductLists.0.ProductCategoryName }} in UK in {{Year}}"> 
                       </a>
                       <a href="{{ProductLists.1.AmazonLink}}">
                         <h5>{{ProductLists.1.ProductName}}</h5>
@@ -97,7 +97,7 @@
                           <h3>Alternative pick</h3>
                       </div>
                       <a href="{{ProductLists.2.AmazonLink}}">
-                        <img class="img-fluid img-responsive rounded p-3" src="{{ProductLists.2.Productimg}}" >
+                        <img class="img-fluid img-responsive rounded p-3" src="{{ProductLists.2.Productimg}}" alt="#3 of the best {{ ProductLists.0.ProductCategoryName }} in UK in {{Year}}">
                       </a>
                       <a href="{{ProductLists.2.AmazonLink}}">
                         <h5>{{ProductLists.2.ProductName}}</h5>
@@ -231,7 +231,7 @@
               <div class="productname d-flex flex-column">
                 <div class="max-auto d-flex justify-content-center">
                   <a href="{{Product.AmazonLink}}">
-                    <img class="img-fluid img-responsive rounded p-3" src="{{Product.Productimg}}" >
+                    <img class="img-fluid img-responsive rounded p-3" src="{{Product.Productimg}}" alt="list of best {{ ProductLists.0.ProductCategoryName }} in UK in {{Year}}">
                   </a>
                 </div>
                 <div class="d-flex flex-column">

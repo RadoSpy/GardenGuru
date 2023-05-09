@@ -174,7 +174,8 @@ h6 {
   display: flex;
   align-items: center;
   justify-content: space-between;
-  padding: 10px 0 10px 30px;
+  /*padding: 10px 0 10px 30px;*/
+  padding: 10px 20px 10px 20px;
   color: #36343a;
   transition: 0.3s;
   font-size: 13px;
@@ -235,7 +236,7 @@ h6 {
 }
 
 .navbar .dropdown ul a {
-  padding: 10px 20px;
+  padding: 10px 10px;
   text-transform: none;
   font-weight: 500;
 }
@@ -271,11 +272,11 @@ h6 {
 
 @media (max-width: 1366px) {
   .navbar .dropdown .dropdown ul {
-    left: -90%;
+    left: -80%;
   }
 
   .navbar .dropdown .dropdown:hover>ul {
-    left: -100%;
+    left: -85%;
   }
 }
 

@@ -82,7 +82,7 @@ class ProductList(models.Model):
 			return 'Good'
 
 
-'''
+
 
 class NavSubCat(models.Model):
 	NavSubCatName = models.CharField(max_length=200)
@@ -94,7 +94,7 @@ class NavSubCat(models.Model):
 		return self.NavSubCatName	
 
 
-
+'''
 
 class ArticleTag(models.Model):
 	ArticleTagName = models.CharField(max_length=200)

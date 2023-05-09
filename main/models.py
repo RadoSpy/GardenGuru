@@ -50,7 +50,7 @@ class ProductListSubCategory(models.Model):
 	ProductListSubCategoryLastUpdated = models.DateTimeField(default=timezone.now)
 	def __str__(self):
 		return self.SubCategoryName
-'''
+
 
 class ProductList(models.Model):
 	ProductName = models.CharField(max_length=200)
@@ -82,7 +82,7 @@ class ProductList(models.Model):
 			return 'Good'
 
 
-
+'''
 
 class NavSubCat(models.Model):
 	NavSubCatName = models.CharField(max_length=200)

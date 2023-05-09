@@ -13,15 +13,23 @@ class NavCat(models.Model):
 	def __str__(self):
 		return self.NavCatName
 
-class ProductCategoryGroup(models.Model):
-	ProductCategoryGroupName = models.CharField(max_length=200)
-	ProductCategoryGroupimg = models.CharField(max_length=200)
+class ProductCategoryMasterGroup(models.Model):
+	ProductCategoryMasterGroupName = models.CharField(max_length=200)
 	ProductCategoryLastUpdated = models.DateTimeField(default=timezone.now)
 	bolDisplay = models.IntegerField(default=1)
 
+	def __str__(self):
+		return self.ProductCategoryMasterGroupName
+
+class ProductCategoryGroup(models.Model):
+	ProductCategoryGroupName = models.CharField(max_length=200)
+	ProductCategoryMasterGroupName = models.ForeignKey(ProductCategoryMasterGroup, on_delete=models.CASCADE, blank=True, null=True)
+	ProductCategoryLastUpdated = models.DateTimeField(default=timezone.now)
+	bolDisplay = models.IntegerField(default=1)
 
 	def __str__(self):
 		return self.ProductCategoryGroupName
+
 
 
 class ProductCategory(models.Model):

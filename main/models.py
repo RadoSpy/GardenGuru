@@ -119,6 +119,7 @@ class Article(models.Model):
 	Articleimg = models.CharField(max_length=200, blank=True, null=True)
 	ArticleTagName = models.ForeignKey(ArticleTag, on_delete=models.CASCADE, blank=True, null=True)
 	NavSubCatName = models.ForeignKey(NavSubCat, on_delete=models.CASCADE)
+	ProductCategory = models.ForeignKey(ProductCategory, on_delete=models.CASCADE, blank=True, null=True)
 
 	ArticleBody = RichTextField(blank=True, null=True)
 

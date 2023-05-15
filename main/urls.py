@@ -22,4 +22,5 @@ urlpatterns = [
 	path('allarticles', views.allarticles, name='all articles'),
 	path('allproductcats', views.allproductcats, name='all product cats'),
 	path('sitemap', views.sitemap, name='sitemap'),
+	
 ]

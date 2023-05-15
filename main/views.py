@@ -1,7 +1,7 @@
 from django.shortcuts import render
 from django.http import HttpResponse
 
-from .models import ProductCategory, ProductList, ProductCategoryGroup, ProductCategoryFeature, ProductListSubCategory
+from .models import ProductCategory, ProductList, ProductCategoryGroup, ProductCategoryMasterGroup, ProductCategoryFeature, ProductListSubCategory
 from .models import NavSubCat, Article
 import datetime
 # Create your views here.
@@ -14,6 +14,7 @@ ProductCategories = ProductCategory.objects.all().filter(bolDisplay=1).order_by(
 ProductCategoriesToDisplay = [obj.id for obj in ProductCategories if obj.ProductCategoryGroupName.bolDisplay == 1]
 ProductCategories = ProductCategories.filter(id__in=ProductCategoriesToDisplay)
 
+ProductCategoryMasterGroups = ProductCategoryMasterGroup.objects.all().order_by('ProductCategoryMasterGroupName')
 
 NavSubCats = NavSubCat.objects.filter(id__in=[3,4,5]).order_by('NavSubCatName')
 
@@ -46,7 +47,8 @@ def sitemap(response, id):
 
 
 def index(response):
-	return render(response, 'main/index.html', {'ProductCategories':ProductCategories,
+	return render(response, 'main/index.html', {'ProductCategoryMasterGroups':ProductCategoryMasterGroups,
+												'ProductCategories':ProductCategories,
 												'ProductCategoryGroups':ProductCategoryGroups,
 												'Year':datetime.datetime.now().year,
 												'ProductLists':ProductList.objects.all().filter(bolDisplay=1),
@@ -67,7 +69,9 @@ def productcategory(response,id):
 
 	ProductListSubCategories = ProductListSubCategory.objects.all().filter(ProductCategoryName=pc.id)
 
-	return render(response, 'main/productcategory.html', {'ProductCategories':ProductCategories,
+	return render(response, 'main/productcategory.html', {
+												'ProductCategoryMasterGroups':ProductCategoryMasterGroups,
+												'ProductCategories':ProductCategories,
 												'ProductCategoryGroups':ProductCategoryGroups,
 												'pc':pc,
 												'Year':datetime.datetime.now().year,
@@ -82,7 +86,9 @@ def productcategory(response,id):
 def articlecategory(response,id):
 	ac = NavSubCat.objects.get(id=id)
 
-	return render(response, 'main/articlecategory.html', {'ProductCategories':ProductCategories,
+	return render(response, 'main/articlecategory.html', {
+												'ProductCategoryMasterGroups':ProductCategoryMasterGroups,
+												'ProductCategories':ProductCategories,
 												'ProductCategoryGroups':ProductCategoryGroups,
 												'Year':datetime.datetime.now().year,
 												#'ProductLists':ProductList.objects.all().filter(bolDisplay=1),
@@ -94,7 +100,9 @@ def articlecategory(response,id):
 
 def article(response, id):
 	a = Article.objects.get(id=id)
-	return render(response, 'main/article.html', {'ProductCategories':ProductCategories,
+	return render(response, 'main/article.html', {
+												'ProductCategoryMasterGroups':ProductCategoryMasterGroups,
+												'ProductCategories':ProductCategories,
 												'ProductCategoryGroups':ProductCategoryGroups,
 												'Year':datetime.datetime.now().year,
 												#'ProductLists':ProductList.objects.all().filter(bolDisplay=1),
@@ -104,7 +112,9 @@ def article(response, id):
 												})
 											
 def allarticles(response):
-	return render(response, 'main/allarticles.html', {'ProductCategories':ProductCategories,
+	return render(response, 'main/allarticles.html', {
+													'ProductCategoryMasterGroups':ProductCategoryMasterGroups,
+													'ProductCategories':ProductCategories,
 													'ProductCategoryGroups':ProductCategoryGroups,
 													'Year':datetime.datetime.now().year,
 													'NavSubCats':NavSubCats,
@@ -112,7 +122,9 @@ def allarticles(response):
 													})
 
 def allproductcats(response):
-	return render(response, 'main/allproductcats.html', {'ProductCategories':ProductCategories,
+	return render(response, 'main/allproductcats.html', {
+														'ProductCategoryMasterGroups':ProductCategoryMasterGroups,
+														'ProductCategories':ProductCategories,
 														'ProductCategoryGroups':ProductCategoryGroups,
 														'Year':datetime.datetime.now().year,
 														'NavSubCats':NavSubCats,
@@ -120,9 +132,11 @@ def allproductcats(response):
 														})
 
 def sitemap(response):
-	return render(response, 'main/sitemap.html', {'ProductCategories':ProductCategories,
-														'ProductCategoryGroups':ProductCategoryGroups,
-														'Year':datetime.datetime.now().year,
-														'NavSubCats':NavSubCats,
-														'Articles':Articles,
-														})
+	return render(response, 'main/sitemap.html', {
+													'ProductCategoryMasterGroups':ProductCategoryMasterGroups,
+													'ProductCategories':ProductCategories,
+													'ProductCategoryGroups':ProductCategoryGroups,
+													'Year':datetime.datetime.now().year,
+													'NavSubCats':NavSubCats,
+													'Articles':Articles,
+													})

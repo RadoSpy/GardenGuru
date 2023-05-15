@@ -72,14 +72,21 @@
             <li class="dropdown nav-link scrollto"><a href=""><span>Products</span> <i class="bi bi-chevron-down"></i></a>
               <!--/allproductcats-->
               <ul>
-                {% for ProductCategoryGroup in ProductCategoryGroups %}
+                {% for ProductCategoryMasterGroup in ProductCategoryMasterGroups %}
                 <li class="dropdown nav-link scrollto">
-                  <a href="#"><span>{{ProductCategoryGroup.ProductCategoryGroupName}}</span><i class="bi bi-chevron-right"></i></a>
+                  <a href="#"><span>{{ProductCategoryMasterGroup.ProductCategoryMasterGroupName}}</span><i class="bi bi-chevron-right"></i></a>
                   <ul>
-                  {% for ProductCategory in ProductCategories %}
-                  {% if ProductCategory.ProductCategoryGroupName.id == ProductCategoryGroup.id %}
-                    <li>
-                      <a href="/productcategory/{{ProductCategory.id}}">{{ProductCategory.ProductCategoryName}}</a>
+                  {% for ProductCategoryGroup in ProductCategoryGroups %}
+                  {% if ProductCategoryGroup.ProductCategoryMasterGroupName.id == ProductCategoryMasterGroup.id %}
+                    <li class="dropdown nav-link scrollto">
+                      <a href="#">{{ProductCategoryGroup.ProductCategoryGroupName}}<i class="bi bi-chevron-right"></i></a>
+                      <ul>
+                        {% for ProductCategory in ProductCategories %}
+                        {% if ProductCategory.ProductCategoryGroupName.id == ProductCategoryGroup.id %}
+                          <a href="/productcategory/{{ProductCategory.id}}">{{ProductCategory.ProductCategoryName}}</a>
+                        {% endif %}
+                        {% endfor %}
+                      </ul>
                     </li>
                   {% endif %}
                   {% endfor %}

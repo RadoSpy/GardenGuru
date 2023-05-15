@@ -222,7 +222,7 @@ h6 {
   left: 14px;
   top: calc(100% + 30px);
   margin: 0;
-  padding: 10px 0;
+  padding: 5px 0;
   z-index: 99;
   opacity: 0;
   visibility: hidden;
@@ -236,7 +236,8 @@ h6 {
 }
 
 .navbar .dropdown ul a {
-  padding: 10px 10px;
+  padding: 5px 10px;
+  /*padding: 10px 10px;*/
   text-transform: none;
   font-weight: 500;
 }
@@ -252,32 +253,50 @@ h6 {
 }
 
 .navbar .dropdown:hover>ul {
+
   opacity: 1;
-  top: 100%;
+  top: 50px;
   visibility: visible;
 }
 
-.navbar .dropdown .dropdown ul {
-  top: 0;
-  left: calc(100% - 30px);
+/*.navbar .dropdown .dropdown ul {
+  
+  left: -100%;
+  right:0;
   visibility: hidden;
+}*/
+
+@media (min-width: 992px) {
+  .navbar .dropdown .dropdown ul {
+    /*height:100%;*/
+    width:320px;
+    left: -100%;
+    /*right:0;*/
+    visibility: hidden;
+  }
 }
+
 
 .navbar .dropdown .dropdown:hover>ul {
   opacity: 1;
-  top: 0;
-  left: 100%;
+  top: -100%;
+  left: -110%;
+  visibility: visible;
+}
+
+.navbar .dropdown .dropdown .dropdown:hover>ul {
+  opacity: 1;
+  top: -100%;
+  left: -100%;
   visibility: visible;
 }
 
 @media (max-width: 1366px) {
   .navbar .dropdown .dropdown ul {
-    left: -80%;
+    left: -100%;
   }
 
-  .navbar .dropdown .dropdown:hover>ul {
-    left: -85%;
-  }
+  
 }
 
 /**
@@ -940,11 +959,15 @@ section {
   bottom: 0;
   transition: all ease-in-out 0.3s;
   z-index: 2;
-  opacity: 0;
+  opacity: 0.5;
 }
 
 .portfolio .portfolio-wrap img {
   transition: all ease-in-out 0.3s;
+  display: block;
+  width: 400px;
+  height: 200px;
+  object-fit: cover;
 }
 
 .portfolio .portfolio-wrap .portfolio-info {
@@ -1167,6 +1190,7 @@ section {
 }
 
 .team .member .pic {
+
   overflow: hidden;
   width: 150px;
   border-radius: 50%;
@@ -1174,6 +1198,7 @@ section {
 }
 
 .team .member .pic img {
+
   transition: ease-in-out 0.3s;
 }
 
@@ -1245,6 +1270,77 @@ section {
 .team .member .social a+a {
   margin-left: 8px;
 }
+
+/*PRODUCT CATS*/
+.pcmg {
+  background: #fff;
+}
+
+.pcmg .pcg {
+  position: relative;
+  box-shadow: 0px 2px 15px rgba(0, 0, 0, 0.1);
+  padding: 30px;
+  border-radius: 10px;
+  text-align: center;
+}
+
+.pcmg .pcg .pic {
+
+  overflow: hidden;
+  height: 200px;
+  border-radius: 5%;
+  margin: 0 auto 20px auto;
+  background-size: contain;
+
+}
+
+.pcmg .pcg .pic img {
+  
+  min-height:200px;
+}
+
+/*.pcmg .pcg .pic img {
+  
+  transition: ease-in-out 0.3s;
+}
+
+.pcmg .pcg:hover img {
+  transform: scale(1.1);
+}*/
+
+.pcmg .pcg h4 {
+  font-weight: 700;
+  margin-bottom: 5px;
+  font-size: 20px;
+  color: #36343a;
+
+}
+
+.pcmg .pcg span {
+  display: block;
+  font-size: 15px;
+  padding-bottom: 10px;
+  position: relative;
+  font-weight: 500;
+}
+
+.pcmg .pcg span::after {
+  content: "";
+  position: absolute;
+  display: block;
+  width: 50px;
+  height: 1px;
+  background: #b5b3ba;
+  bottom: 0;
+  left: 50%;
+  transform: translateX(-50%);
+}
+
+.pcmg .pcg p {
+  margin: 10px 0 0 0;
+  font-size:0.75rem
+}
+
 
 /*--------------------------------------------------------------
 # Contact

@@ -144,3 +144,13 @@ class ProductCategoryFeature(models.Model):
 	def __str__(self):
 		return self.FeatureName
 
+class ProductCategoryText(models.Model):
+	
+	ProductCategory = models.OneToOneField(ProductCategory, on_delete=models.CASCADE, primary_key=True)
+	Text = RichTextField(blank=True, null=True)
+	LastUpdated = models.DateTimeField(auto_now_add=True)
+
+	def __str__(self):
+		return self.ProductCategory.ProductCategoryName
+
+

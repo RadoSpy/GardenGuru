@@ -73,7 +73,9 @@ class ProductList(models.Model):
 	ProductListSubCategory = models.ForeignKey(ProductListSubCategory, on_delete=models.CASCADE, default=1)
 	ProductLastUpdated = models.DateTimeField(default=timezone.now)
 	bolDisplay = models.IntegerField(default=1)
+	SaleRank = models.IntegerField(null=True, blank=True)
 	ProductBody = RichTextField(blank=True, null=True)
+
 
 	def __str__(self):
 		return self.ProductName
@@ -136,6 +138,8 @@ class Article(models.Model):
 
 
 
+
+
 class ProductCategoryFeature(models.Model):
 	FeatureName = models.CharField(max_length=200)
 	FeatureDesc = models.CharField(max_length=1000, blank=True)
@@ -154,4 +158,22 @@ class ProductCategoryText(models.Model):
 	def __str__(self):
 		return self.ProductCategory.ProductCategoryName
 
+'''
+class ArticleLinks(models.Model):
+	DisplayName = models.CharField(max_length=200)
+	Article = models.OneToOneField(Article, on_delete=models.CASCADE, primary_key=True, null=True, blank=True)
+	PC1 = models.OneToOneField(ProductCategory, on_delete=models.CASCADE, primary_key=True, null=True, blank=True)
+	PC2 = models.OneToOneField(ProductCategory, on_delete=models.CASCADE, primary_key=True, null=True, blank=True)
+	PC3 = models.OneToOneField(ProductCategory, on_delete=models.CASCADE, primary_key=True, null=True, blank=True)
+	PC4 = models.OneToOneField(ProductCategory, on_delete=models.CASCADE, primary_key=True, null=True, blank=True)
+	PC5 = models.OneToOneField(ProductCategory, on_delete=models.CASCADE, primary_key=True, null=True, blank=True)
+	PC6 = models.OneToOneField(ProductCategory, on_delete=models.CASCADE, primary_key=True, null=True, blank=True)
+	PC7 = models.OneToOneField(ProductCategory, on_delete=models.CASCADE, primary_key=True, null=True, blank=True)
+	PC8 = models.OneToOneField(ProductCategory, on_delete=models.CASCADE, primary_key=True, null=True, blank=True)
+	PC9 = models.OneToOneField(ProductCategory, on_delete=models.CASCADE, primary_key=True, null=True, blank=True)
+	PC10 = models.OneToOneField(ProductCategory, on_delete=models.CASCADE, primary_key=True, null=True, blank=True)
+	LastUpdated = models.DateTimeField(auto_now_add=True)
 
+	def __str__(self):
+		return self.DisplayName
+'''

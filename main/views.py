@@ -3,6 +3,8 @@ from django.http import HttpResponse
 
 from .models import ProductCategory, ProductList, ProductCategoryGroup, ProductCategoryMasterGroup, ProductCategoryFeature, ProductListSubCategory
 from .models import NavSubCat, Article
+from .models import ProductCategoryText
+
 import datetime
 # Create your views here.
 
@@ -60,7 +62,7 @@ def index(response):
 
 def productcategory(response,id):
 	pc = ProductCategory.objects.get(id=id)
-	features = ProductCategoryFeature.objects.all().filter(ProductCategoryName=pc.id)
+	features = ProductCategoryFeature.objects.all().filter(ProductCategoryName=id)
 	ProductLists = ProductList.objects.all().filter(bolDisplay=1)
 	ProductsToDisplay = [obj.id for obj in ProductLists if obj.ProductCategoryName.bolDisplay == 1]
 	ProductLists = ProductLists.filter(id__in=ProductsToDisplay)
@@ -68,6 +70,8 @@ def productcategory(response,id):
 	ProductsNotSetCount = ProductLists.filter(ProductListSubCategory=1).count()
 
 	ProductListSubCategories = ProductListSubCategory.objects.all().filter(ProductCategoryName=pc.id)
+
+	pct = ProductCategoryText.objects.all().filter(ProductCategory=id)
 
 	return render(response, 'main/productcategory.html', {
 												'ProductCategoryMasterGroups':ProductCategoryMasterGroups,
@@ -81,6 +85,7 @@ def productcategory(response,id):
 												'ProductsNotSetCount':ProductsNotSetCount,
 												'NavSubCats':NavSubCats,
 												'Articles':Articles,
+												'pct':pct,
 												})
 
 def articlecategory(response,id):

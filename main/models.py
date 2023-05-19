@@ -70,7 +70,7 @@ class ProductList(models.Model):
 	Productimg = models.CharField(max_length=400, blank=True)
 	ProductDesc = models.CharField(max_length=1000, default='', blank=True)
 	ProductScoreSummary = models.CharField(max_length=1000, blank=True)
-	ProductListSubCategory = models.ForeignKey(ProductListSubCategory, on_delete=models.CASCADE, default=1, null=True, blank=True)
+	ProductListSubCategory = models.ForeignKey(ProductListSubCategory, on_delete=models.CASCADE, null=True, blank=True)
 	ProductLastUpdated = models.DateTimeField(default=timezone.now)
 	bolDisplay = models.IntegerField(default=1)
 	SaleRank = models.IntegerField(null=True, blank=True)

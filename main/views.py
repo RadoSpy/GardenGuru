@@ -63,12 +63,8 @@ def productcategory(response,id):
 	ProductLists = ProductList.objects.filter(ProductCategoryName=id)
 	features = ProductCategoryFeature.objects.filter(ProductCategoryName=id)
 
-	#ProductLists = ProductList.objects.all().filter(bolDisplay=1)
-	#ProductsToDisplay = [obj.id for obj in ProductLists if obj.ProductCategoryName.bolDisplay == 1]
-	#ProductLists = ProductLists.filter(id__in=ProductsToDisplay)
 	ProductLists = ProductLists.filter(bolDisplay=1)
-	
-	ProductLists = ProductLists.order_by('-AmazonStar')
+	ProductLists = ProductLists.order_by('-AmazonStar','SaleRank')
 
 	#ProductsNotSetCount = ProductLists.filter(ProductListSubCategory=1).count()
 	ProductsNotSetCount = ProductLists.filter(ProductListSubCategory=1).count()

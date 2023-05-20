@@ -74,12 +74,13 @@
               <ul>
                 {% for ProductCategoryMasterGroup in ProductCategoryMasterGroups %}
                 <li class="dropdown nav-link scrollto">
-                  <a href="#"><span>{{ProductCategoryMasterGroup.ProductCategoryMasterGroupName}}</span><i class="bi bi-chevron-right"></i></a>
+                  <a href="/allproductcats#{{ProductCategoryMasterGroup.ProductCategoryMasterGroupName}}"><span>{{ProductCategoryMasterGroup.ProductCategoryMasterGroupName}}</span><i class="bi bi-chevron-right"></i></a>
                   <ul>
                   {% for ProductCategoryGroup in ProductCategoryGroups %}
                   {% if ProductCategoryGroup.ProductCategoryMasterGroupName.id == ProductCategoryMasterGroup.id %}
                     <li class="dropdown nav-link scrollto">
-                      <a href="#">{{ProductCategoryGroup.ProductCategoryGroupName}}<i class="bi bi-chevron-right"></i></a>
+                      <a href="/allproductcats#{{ProductCategoryGroup.ProductCategoryGroupName}}">{{ProductCategoryGroup.ProductCategoryGroupName}}<!--<i class="bi bi-chevron-right"></i>--></a>
+                      <!--
                       <ul>
                         {% for ProductCategory in ProductCategories %}
                         {% if ProductCategory.ProductCategoryGroupName.id == ProductCategoryGroup.id %}
@@ -87,6 +88,7 @@
                         {% endif %}
                         {% endfor %}
                       </ul>
+                      -->
                     </li>
                   {% endif %}
                   {% endfor %}

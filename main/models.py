@@ -88,6 +88,8 @@ class ProductList(models.Model):
 			return 'Amazing'
 		elif self.AmazonStar>=4.0:
 			return 'Great'
+		elif self.AmazonStar==0.0:
+			return 'No Amazon Rating Yet'
 		else:
 			return 'Good'
 

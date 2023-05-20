@@ -28,8 +28,9 @@
           <div class="row d-flex justify-content-center">
             {% for pcg in ProductCategoryGroups %}
             {% if pcg.ProductCategoryMasterGroupName.id == pcmg.id %}
-            <div class="col-lg-4 d-flex justify-content-center mt-4">
-              <div class="pcg" data-aos="zoom-in" data-aos-delay="100" style="width:100%">
+
+            <div class="col-lg-4 d-flex justify-content-center mt-4" >
+              <div class="pcg" data-aos="zoom-in" data-aos-delay="100" style="width:100%" id="{{pcg.ProductCategoryGroupName}}">
                 <div class="pic"><img src="/static/assets/img/pc/{{pcg.ProductCategoryGroupName}}.jpg" class="img-fluid" alt=""></div>
                 <div class="pcg-info">
                   <h5><span><strong>{{pcg.ProductCategoryGroupName}}</strong></span></h5>

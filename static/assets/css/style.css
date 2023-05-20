@@ -1866,6 +1866,7 @@ body {
       hsl(var(--clr-neutral-hsl-700), .2);
     border-radius: 2rem;
     padding:0.5rem;
+    
   }
 }
 

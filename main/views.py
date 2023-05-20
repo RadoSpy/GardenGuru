@@ -9,17 +9,15 @@ import datetime
 # Create your views here.
 
 
-
+ProductCategoryMasterGroups = ProductCategoryMasterGroup.objects.all().order_by('ProductCategoryMasterGroupName')
 ProductCategoryGroups = ProductCategoryGroup.objects.all().filter(bolDisplay=1).order_by('ProductCategoryGroupName')
 
-ProductCategories = ProductCategory.objects.all().filter(bolDisplay=1).order_by('ProductCategoryName')
-ProductCategoriesToDisplay = [obj.id for obj in ProductCategories if obj.ProductCategoryGroupName.bolDisplay == 1]
-ProductCategories = ProductCategories.filter(id__in=ProductCategoriesToDisplay)
-
-ProductCategoryMasterGroups = ProductCategoryMasterGroup.objects.all().order_by('ProductCategoryMasterGroupName')
+ProductCategories = ProductCategory.objects.filter(bolDisplay=1).order_by('ProductCategoryName')
+#ProductCategoriesToDisplay = [obj.id for obj in ProductCategories if obj.ProductCategoryGroupName.bolDisplay == 1]
+#ProductCategories = ProductCategories.filter(id__in=ProductCategoriesToDisplay)
+ProductCategories = ProductCategories.filter(ProductCategoryGroupName__bolDisplay=1)
 
 NavSubCats = NavSubCat.objects.filter(id__in=[3,4,5]).order_by('NavSubCatName')
-
 Articles = Article.objects.all().order_by('-LastUpdated')
 
 '''
@@ -53,7 +51,7 @@ def index(response):
 												'ProductCategories':ProductCategories,
 												'ProductCategoryGroups':ProductCategoryGroups,
 												'Year':datetime.datetime.now().year,
-												'ProductLists':ProductList.objects.all().filter(bolDisplay=1),
+												'ProductLists':ProductList.objects.filter(bolDisplay=1).count(),
 												'NavSubCats':NavSubCats,
 												'Articles':Articles,
 												
@@ -62,16 +60,22 @@ def index(response):
 
 def productcategory(response,id):
 	pc = ProductCategory.objects.get(id=id)
-	features = ProductCategoryFeature.objects.all().filter(ProductCategoryName=id)
-	ProductLists = ProductList.objects.all().filter(bolDisplay=1)
-	ProductsToDisplay = [obj.id for obj in ProductLists if obj.ProductCategoryName.bolDisplay == 1]
-	ProductLists = ProductLists.filter(id__in=ProductsToDisplay)
-	ProductLists = ProductLists.filter(ProductCategoryName=pc.id).order_by('-AmazonStar')
+	ProductLists = ProductList.objects.filter(ProductCategoryName=id)
+	features = ProductCategoryFeature.objects.filter(ProductCategoryName=id)
+
+	#ProductLists = ProductList.objects.all().filter(bolDisplay=1)
+	#ProductsToDisplay = [obj.id for obj in ProductLists if obj.ProductCategoryName.bolDisplay == 1]
+	#ProductLists = ProductLists.filter(id__in=ProductsToDisplay)
+	ProductLists = ProductLists.filter(bolDisplay=1)
+	
+	ProductLists = ProductLists.order_by('-AmazonStar')
+
+	#ProductsNotSetCount = ProductLists.filter(ProductListSubCategory=1).count()
 	ProductsNotSetCount = ProductLists.filter(ProductListSubCategory=1).count()
 
-	ProductListSubCategories = ProductListSubCategory.objects.all().filter(ProductCategoryName=pc.id)
+	ProductListSubCategories = ProductListSubCategory.objects.filter(ProductCategoryName=id)
 
-	pct = ProductCategoryText.objects.all().filter(ProductCategory=id)
+	pct = ProductCategoryText.objects.filter(ProductCategory=id)
 
 	return render(response, 'main/productcategory.html', {
 												'ProductCategoryMasterGroups':ProductCategoryMasterGroups,

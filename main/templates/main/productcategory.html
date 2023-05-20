@@ -256,7 +256,7 @@
               <div class="d-flex flex-column">
               <div class="result-summary">
                 <div class="results grid-flow" data-spacing="large">
-                  <p class="result-score"><span>{{Product.AmazonStar}}</span> of 5.0</p>
+                  <p class="result-score"><span>{{ Product.AmazonStar|floatformat:1 }}</span> of 5.0</p>
                   <div class="grid-flow">
                     <p class="result-rank">
                       {{Product.AmazonStarRating}}

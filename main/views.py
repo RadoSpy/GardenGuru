@@ -48,7 +48,7 @@ def sitemap(response, id):
 
 def index(response):
 	return render(response, 'main/index.html', {'ProductCategoryMasterGroups':ProductCategoryMasterGroups,
-												'ProductCategories':ProductCategories,
+												'ProductCategories':ProductCategories.count(),
 												'ProductCategoryGroups':ProductCategoryGroups,
 												'Year':datetime.datetime.now().year,
 												'ProductLists':ProductList.objects.filter(bolDisplay=1).count(),
@@ -75,7 +75,7 @@ def productcategory(response,id):
 
 	return render(response, 'main/productcategory.html', {
 												'ProductCategoryMasterGroups':ProductCategoryMasterGroups,
-												'ProductCategories':ProductCategories,
+												#'ProductCategories':ProductCategories,
 												'ProductCategoryGroups':ProductCategoryGroups,
 												'pc':pc,
 												'Year':datetime.datetime.now().year,
@@ -93,7 +93,7 @@ def articlecategory(response,id):
 
 	return render(response, 'main/articlecategory.html', {
 												'ProductCategoryMasterGroups':ProductCategoryMasterGroups,
-												'ProductCategories':ProductCategories,
+												#'ProductCategories':ProductCategories,
 												'ProductCategoryGroups':ProductCategoryGroups,
 												'Year':datetime.datetime.now().year,
 												#'ProductLists':ProductList.objects.all().filter(bolDisplay=1),
@@ -107,7 +107,7 @@ def article(response, id):
 	a = Article.objects.get(id=id)
 	return render(response, 'main/article.html', {
 												'ProductCategoryMasterGroups':ProductCategoryMasterGroups,
-												'ProductCategories':ProductCategories,
+												#'ProductCategories':ProductCategories,
 												'ProductCategoryGroups':ProductCategoryGroups,
 												'Year':datetime.datetime.now().year,
 												#'ProductLists':ProductList.objects.all().filter(bolDisplay=1),
@@ -119,7 +119,7 @@ def article(response, id):
 def allarticles(response):
 	return render(response, 'main/allarticles.html', {
 													'ProductCategoryMasterGroups':ProductCategoryMasterGroups,
-													'ProductCategories':ProductCategories,
+													#'ProductCategories':ProductCategories,
 													'ProductCategoryGroups':ProductCategoryGroups,
 													'Year':datetime.datetime.now().year,
 													'NavSubCats':NavSubCats,

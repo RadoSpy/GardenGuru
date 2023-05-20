@@ -81,7 +81,7 @@
         <div class="row counters">
 
           <div class="col-lg-4 col-6 text-center">
-            <span data-purecounter-start="0" data-purecounter-end="{{ProductCategories.count}}" data-purecounter-duration="1" class="purecounter"></span>
+            <span data-purecounter-start="0" data-purecounter-end="{{ProductCategories}}" data-purecounter-duration="1" class="purecounter"></span>
             <p>Product Categories</p>
           </div>
 
@@ -125,19 +125,7 @@
           <div class="col-lg-8 d-flex align-items-stretch">
             <div class="icon-boxes d-flex flex-column justify-content-center">
               <div class="row">
-                {% for productcat in ProductCategories %}
                 
-                <div class="col-xl-4 d-flex align-items-stretch" data-aos="zoom-in" data-aos-delay="100">
-                  <div class="icon-box mt-4 mt-xl-0">
-                      <a href="/productcategory/{{productcat.id}}">
-                        <i class="bx bx-leaf"></i>
-                        <h4>{{productcat.ProductCategoryName}}</h4>
-                        <p>{{productcat.ProductCategoryDesc1}}</p>
-                    </a>
-                  </div>
-                </div>
-                
-                {% endfor %}
                 
                 
               </div>

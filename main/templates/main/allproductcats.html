@@ -18,7 +18,7 @@
 
     <!-- ======= Team Section ======= -->
     
-    {% for pcmg in ProductCategoryMasterGroups %}
+    {% for pcmg in pcmgs %}
     <div id="{{pcmg.ProductCategoryMasterGroupName}}" class="mt-4">
       <div class="container d-flex mt-4">
         <h2 style="font-size:2.5rem">{{pcmg.ProductCategoryMasterGroupName}}</h2>
@@ -26,8 +26,8 @@
       <section id="pcmg" class="pcmg mt-4">
         <div class="container">
           <div class="row d-flex justify-content-center">
-            {% for pcg in ProductCategoryGroups %}
-            {% if pcg.ProductCategoryMasterGroupName.id == pcmg.id %}
+            {% for pcg in pcgs %}
+            
 
             <div class="col-lg-4 d-flex justify-content-center mt-4" >
               <div class="pcg" data-aos="zoom-in" data-aos-delay="100" style="width:100%" id="{{pcg.ProductCategoryGroupName}}">
@@ -38,7 +38,7 @@
                <div>
                <p>Select one of below:</p>
                
-                 {% for pc in ProductCategories %}
+                 {% for pc in pcs %}
                  {% if pc.ProductCategoryGroupName.id == pcg.id %}
                     
                     <a href="/productcategory/{{pc.id}}">{{pc.ProductCategoryName}}</a><br>
@@ -49,7 +49,7 @@
                </div>
               </div>
             </div>
-            {% endif %}
+            
             {% endfor %}
           </div>
         </div>

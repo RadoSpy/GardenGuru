@@ -164,7 +164,7 @@
         <div class="row portfolio-container" data-aos="fade-up" data-aos-delay="200">
           {% for ProductCategoryMasterGroup in ProductCategoryMasterGroups %}
           <div class="col-lg-4 col-md-6 portfolio-item filter-cat{{ProductCategorymasterGroup.id}}">
-            <a href="/allproductcats#{{ProductCategoryMasterGroup.ProductCategoryMasterGroupName}}">
+            <a href="/allproductcats/{{ProductCategoryMasterGroup.id}}#{{ProductCategoryMasterGroup.ProductCategoryMasterGroupName}}">
             <div class="portfolio-wrap">
               <img src="/static/assets/img/pc/{{ProductCategoryMasterGroup.ProductCategoryMasterGroupName}}.jpg" class="img-fluid" alt="Best UK {{ProductCategoryMasterGroup.ProductCategoryMasterGroupName}} in {{Year}}">
               <div class="portfolio-info text-center">

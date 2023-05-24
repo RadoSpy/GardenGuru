@@ -126,7 +126,10 @@ def allarticles(response):
 													'Articles':Articles,
 													})
 
-def allproductcats(response):
+def allproductcats(response, id):
+	pcmgs = ProductCategoryMasterGroups.filter(id=id)
+	pcgs = ProductCategoryGroups.filter(ProductCategoryMasterGroupName__id=id)
+	pcs = ProductCategories.filter(ProductCategoryGroupName__ProductCategoryMasterGroupName__id=id)
 	return render(response, 'main/allproductcats.html', {
 														'ProductCategoryMasterGroups':ProductCategoryMasterGroups,
 														'ProductCategories':ProductCategories,
@@ -134,6 +137,9 @@ def allproductcats(response):
 														'Year':datetime.datetime.now().year,
 														'NavSubCats':NavSubCats,
 														'Articles':Articles,
+														'pcmgs':pcmgs,
+														'pcgs':pcgs,
+														'pcs':pcs,
 														})
 
 def sitemap(response):

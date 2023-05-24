@@ -81,7 +81,10 @@ class ProductList(models.Model):
 		return self.ProductName
 
 	def ProductScores(self):
-		return [i.split(':') for i in self.ProductScoreSummary.split(';')]
+		if self.AmazonStar==0.0:
+			return [['Easy to use','No reviews yet'],['Value for money','No reviews yet'],['Sturdiness','No reviews yet']]
+		else:
+			return [i.split(':') for i in self.ProductScoreSummary.split(';')]
 
 	def AmazonStarRating(self):
 		if self.AmazonStar>=4.5:

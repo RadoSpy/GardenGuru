@@ -277,7 +277,7 @@
                       <div class="flex-group">
                         <h5 class="summary-item-title">{{FeatureScore.0}}</h5>
                       </div>
-                      <p class="summary-score"><span>{{FeatureScore.1}}</span> / 5.0</p>
+                      <p class="summary-score"><span>{{FeatureScore.1}}</span>{% if FeatureScore.1 != 'No reviews yet' %} / 5.0{% endif %}</p>
                     </div>
                     {% endfor %}
                   </div>
